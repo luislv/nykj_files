@@ -40,7 +40,7 @@ a:hover { text-decoration:underline; }
 .tx_align_r { text-align:right; }
 /*----General styles end----*/
 /*结构类公用样式begin*/
-.lay { width:960px; margin:0px auto;}
+.lay { width:1100px; margin:0px auto;}
 .fenge{ height:5px; width:100%; overflow:auto;}
 /*结构类公用样式end*/
 /*间距类公用样式end*/

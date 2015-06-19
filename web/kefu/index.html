@@ -1,35 +1,272 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="http://www.ny.com/base.css" />
-    <script type="text/javascript" src="http://www.ny.com/jquery-1.9.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/kefu.css" />
-    <script type="text/javascript" src="js/kefu.js"></script>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="http://www.ny.com/base.css"/>
+<script type="text/javascript" src="http://www.ny.com/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<script type="text/javascript" src="js/kefu.js"></script>
 </head>
 <body>
 <header>
-    <div class="header">
-        <div class="logo"></div>
-        <div class="logo_info"></div>
-        <div class="tel"></div>
-        <div class="menu"></div>
+  <div class="header">
+    <div class="lay">
+      <div class="logo">
+        <h1><a href="http://www.91160.com/"><img alt="就医160" title="就医160" src="images/main_logo.png"></a></h1>
+      </div>
+      <div class="logo_info">呼叫中心管理后台<span class="ge"></span><span class="fu"></span></div>
+      <div class="menu"> <span class="setting"><span class="btn"></span>
+         <!-- 设置弹出窗 -->
+        <div class="setting_box">
+          <div class="tit">
+            <div class="close"></div>
+            用户设置 </div>
+          <div class="tab_box">
+            <div class="tab_t"> <span class="cur">修改密码</span><span>其他设置</span> </div>
+            <div class="tab_c">
+              <ul class="cl_value">
+                <li><em>旧密码</em>
+                  <input type="text" value="请输入旧密码"/>
+                </li>
+                <li><em>新密码</em>
+                  <input type="text" value="请输入新密码"/>
+                  <p class="safe">安全级别：弱<span class="d"><i class="s_1"></i></span>强</p>
+                </li>
+                <!-- s_1、s_2、s_3三个class分别对应弱、中、强三个安全等级   -->
+                <li><em>确认新密码</em>
+                  <input type="text" value="确认新密码"/>
+                </li>
+              </ul>
+              <div class="sub_btn">
+                <input type="submit" value="确定修改"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 设置弹出窗 end -->
+        </span> <span class="faq"></span> </div>
+      <div class="tel">当前电话：<span class="number">400-11-91160</span></div>
     </div>
+  </div>
 </header>
 <nav>
-    <div class="nav">
-    <ul><li><a href="#" target="_blank">首页</a></li><li class="active"><a href="#" target="_blank">报表统计</a></li></ul>
-    </div>
+  <div class="nav">
+    <ul>
+      <li><a href="#" target="_blank">首页</a></li>
+      <li class="cur"><a href="#" target="_blank">报表统计</a></li>
+    </ul>
+  </div>
 </nav>
 <main>
-    <div class="user_info"></div>
-    <div class="login_log"></div>
+  <div class="user_info lay">
+    <div class="username"><em>用户名：</em>客服001</div>
+    <div class="name"><em>姓名：</em>黄欢</div>
+    <div class="status"><em>身份：</em>普通管理员</div>
+    <div class="exit"><a href="#">安全退出</a></div>
+  </div>
+  <div class="login_log lay"> <span class="login_ip">上次登录IP：192.162.123.122（广东 深圳）</span> <span class="login_time">上次登录时间：2015-04-29  19：57：34</span> <span class="week">星期一</span> </div>
+  <div class="call_box lay"> 
+    <!-- 当前有通话 -->
+    <div class="call_exist">
+      <p class="now">当前通话</p>
+      <div class="call_log">
+        <div class="call_ico in"></div><!-- in呼入电话  out呼出电话 -->
+        <ul class="info">
+          <li><em>来电号码：</em>15838248773</li>
+          <li><em>归属地：</em>广东深圳</li>
+          <li><em>语音引导：</em>预约挂号</li>
+        </ul>
+      </div>
+      <div class="time"><i></i>通话时长<b>00:01</b></div>
+    </div>
+    <!-- 当前有通话 end --> 
+    <!-- 当前无通话 -->
+    <div class="call_none">
+      <p><i></i>当前无通话</p>
+    </div>
+    <!-- 当前无通话 end-->
+    <div class="tool_bar">
+      <div class="zt">
+        <div class="tool_box exist"> <!-- 各tool_box单元附加 .none样式表示灰色状态 附加.exist表示正常状态 -->
+          <p class="ico"></p>
+          <p class="tit">示闲</p>
+        </div>
+        <span class="tab_btn"></span>
+        <ul class="tab_box_c">
+          <li class="x"><i></i>示闲</li>
+          <li class="m"><i></i>示忙</li>
+        </ul>
+      </div>
+      <div class="s"></div>
+      <div class="zj">
+        <div class="tool_box none">
+          <p class="ico"></p>
+          <p class="tit">呼叫转接</p>
+        </div>
+      </div>
+      <div class="bc">
+        <div class="tool_box exist">
+          <p class="ico"></p>
+          <p class="tit">保持</p>
+        </div>
+      </div>
+      <div class="s"></div>
+      <div class="bh">
+        <div class="tool_box exist">
+          <p class="ico"></p>
+          <p class="tit">拨号</p>
+        </div>
+         /* 拨号弹窗 */
+        <div class="call_out">
+          <p>请输入电话号码</p>
+          <input class="num" type="text" value=""/>
+          <input class="call_btn" type="button" value="确定拨号"/>
+        </div>
+         /* 拨号弹窗 end */
+      </div>
+      <div class="pj">
+        <div class="tool_box none">
+          <p class="ico"></p>
+          <p class="tit">服务评价</p>
+        </div>
+      </div>
+      <div class="s"></div>
+      <div class="gd">
+        <div class="tool_box exist">
+          <p class="ico"></p>
+          <p class="tit">挂断</p>
+        </div>
+      </div>
+    </div>
+    <div class="table_box">
+      <div class="search_box">
+        <div class="l_box">
+          <div class="list fl_l"><em>开始时间：</em>
+            <div class="r">
+              <input type="text" class="time" value="2015-06-01 15：15"/>
+              <span  class="rl_btn"></span>
+            </div>
+          </div>
+          <div class="list fl_r"><em>结束时间：</em>
+            <div class="r">
+              <input type="text" class="time" value="2015-06-01 15：15"/>
+              <span class="rl_btn"></span>
+            </div>
+          </div>
+          <div class="list fl_l"><em>来电号码：</em>
+            <div class="r">
+              <input class="num"/>
+            </div>
+          </div>
+          <div class="list fl_r"><em>关键词：</em>
+            <div class="r">
+                <div onclick="CoLeeSelect(this)" class="js_sel" style="width:181px;"  tabIndex=0>
+                    <input id="" class="in_val" style="width:150px;padding-left:7px;" type="text" value="--请选择--" />
+                    <ul class="js_sel_list" style="width:179px; display:none;">
+                        <li class="hover">关键词一</li>
+                        <li>关键词一</li>
+                        <li>关键词一</li>
+                        <li>关键词一</li>
+                        <li>关键词一</li>
+                        <li>关键词一</li>
+                        <li>关键词一</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <input type="button" class="check" value="查 询"/>
+        </div>
+        <div class="r_box">
+            <div class="check_cell"><div class="mn_check">0</div><label for="">启动来电弹屏</label></div>
+            <div class="zd_box"><div class="bt">0</div><label for="">显示字段</label>
+                /* 字段弹窗 */
+                <div class="check_list">
+                    <h3>请选择需要显示的字段：</h3>
+                    <div class="check_cell check_all"><div class="mn_check">0</div><label for="">全选</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">序号</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">响应时间</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">语音引导</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">挂机状态</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">来电号码</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">开始时间</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">在线录音</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">结束时间</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">在线时长</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">通话时长</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">方向</label></div>
+                    <div class="check_cell"><div class="mn_check">0</div><label for="">通话状态</label></div>
+                    <div class="btn"><span class="determine fl_l">确定</span><span class="cancel fl_r">取消</span></div>
+                </div>
+                /* 字段弹窗 end */
+            </div>
+
+        </div>
+      </div>
+        <div class="cl_b"></div>
+      <div class="table_scroll">
+        <div class="call_list">
+          <div class="call_tit"><span class="xh">序号</span><span class="zx">坐席号</span><span
+                            class="xm">坐席姓名</span><span class="ks">开始时间</span><span class="js">结束时间</span><span
+                            class="bc">拨出数量</span><span class="jt">接听数量</span><span
+                            class="th">通话时长（分）</span><span class="xy">响应时间</span><span class="zt">通话状态</span><span
+                            class="pj">满意度评价</span></div>
+          <ul class="list_box">
+            <li><span class="sel">
+              <input type="checkbox"/>
+              </span><span class="xh">1</span><span
+                                class="zx">001</span><span class="xm">###</span><span
+                                class="ks">2015-04-30  13：56</span><span class="js">2015-04-30  13：56</span><span
+                                class="bc">5</span><span class="jt">12</span><span class="th">5s</span><span class="xy">5s</span><span
+                                class="zt">结束</span><span
+                                class="pj">满意</span></li>
+            <li><span class="sel">
+              <input type="checkbox"/>
+              </span><span class="xh">1</span><span
+                                class="zx">001</span><span class="xm">###</span><span
+                                class="ks">2015-04-30  13：56</span><span class="js">2015-04-30  13：56</span><span
+                                class="bc">5</span><span class="jt">12</span><span class="th">5s</span><span class="xy">5s</span><span
+                                class="zt">结束</span><span
+                                class="pj">满意</span></li>
+            <li><span class="sel">
+              <input type="checkbox"/>
+              </span><span class="xh">1</span><span
+                                class="zx">001</span><span class="xm">###</span><span
+                                class="ks">2015-04-30  13：56</span><span class="js">2015-04-30  13：56</span><span
+                                class="bc">5</span><span class="jt">12</span><span class="th">5s</span><span class="xy">5s</span><span
+                                class="zt">结束</span><span
+                                class="pj">满意</span></li>
+          </ul>
+        </div>
+      </div>
+        <!--  录音插件放此处   -->
+      <div class="submit"> <span class="export fl_l"><i></i>导 出</span><span class="stamp fl_r"><i></i>打 印</span> </div>
+      <div class="pagelist"> <span class="pageinfo">
+        <select>
+        </select>
+        每页显示数目：</span> <span class="list_box"> <a href="#">首页</a> <a href="#">上一页</a> <strong>1</strong><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a> <a href="#">下一页</a> <a href="#">末页</a> </span> <span>共10页</span> <span>50条记录</span> <span>转到第
+        <input class="ys" type="text"/>
+        页数</span>
+        <input class="go" type="button" value="GO"/>
+      </div>
+    </div>
+  </div>
 </main>
 <footer>
-    <div class="footer">
-
-    </div>
+  <div class="footer">
+    <p>版权所有 ©2015 深圳市宁远科技有限公司保留一切权利。</p>
+  </div>
 </footer>
+<!-- 右下角提示框 -->
+<div class="cue_box">
+  <p class="t"><i class="close"></i>宁远科技客服服务中心</p>
+  <ul class="info">
+    <li><em>语音引导：</em>预约挂号</li>
+    <li><em>来电号码：</em>15838248773</li>
+    <li><em>归属地：</em>广东深圳</li>
+  </ul>
+  <span class="btn">
+  <input type="submit" value="立即接听"/>
+  </span> </div>
 </body>
 </html>
