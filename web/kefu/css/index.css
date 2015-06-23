@@ -2,7 +2,7 @@
 body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .header {height:90px; background-color:#fff;}
 .header .logo {padding-top:24px; float:left;}
-.header .logo_info {height:35px; line-height:35px; margin-top:31px; float:left;display:inline; margin-left:15px;font-size:22px;color:#00a0e9;}
+.header .logo_info {height:35px; line-height:35px; margin-top:31px; float:left;display:inline-block; margin-left:15px;font-size:22px;color:#00a0e9;}
 .header .logo_info .ge {border-left:1px solid #d7d7d7;width:0px; height:28px; overflow:hidden; float:left; display:inline; margin-top:2px;}
 .header .logo_info .fu {width:33px; height:35px;margin:0 13px 0 20px; float:left;display:inline;background:url("../images/kf_icon.png") no-repeat 0 0;}
 .header .menu {float:right;display:inline; margin-top:30px;padding-left:20px;}
@@ -10,8 +10,8 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .header .menu .setting {background:url("../images/kf_icon.png") no-repeat 0 -36px; float:left; position:relative;}
 .header .menu .setting a {width:100%; height:100%; display:inline-block; background:url("");}
 .header .menu .faq { background:url("../images/kf_icon.png") no-repeat  -30px -36px; margin-left:15px;}
-.header .tel {float:right; display:inline;margin-top:32px; font-family:"Microsoft yahei", "微软雅黑","黑体";font-size:16px;}
-.header .tel .number{font-size:24px;line-height:24px; font-family:arial, helvetica, sans-serif; color:#ff6600; float:right; font-weight:bold;}
+.header .tel {float:right; display:inline;margin-top:30px; font-family:"Microsoft yahei", "微软雅黑","黑体";font-size:16px;}
+.header .tel .number{font-size:24px;line-height:24px; font-family:arial, helvetica, sans-serif; color:#ff6600;  font-weight:bold; position:relative; top:3px;}
 .setting_box {display:none;width:420px;position:absolute;z-index:99;left:-390px;top:35px;padding-bottom:30px;background-color:#fff; border:1px solid #ddd;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
 .setting_box .tit {height:37px; line-height:37px; border-bottom:1px solid #d6d6d6;padding-left:16px;font-size:14px; color:#333;background:url("../images/jb.gif") repeat-x 0 0;}
 .setting_box .tit .close {width:10px; height:10px;background:url("../images/kf_icon.png") no-repeat 0 -89px; float:right;display:inline;margin:13px 13px 0 0;}
@@ -64,7 +64,7 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .zd_box .check_list .check_cell{width:106px;margin:18px 0 0 0; float:left;display:inline;}
 .zd_box .check_list .check_all {width:100%;}
 .zd_box .check_list .btn { padding-top:18px; clear:both;}
-.zd_box .check_list .btn span {width:102px; height:35px; line-height:35px; text-align:center; font-size:14px; color:#fff;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
+.zd_box .check_list .btn span {width:102px; height:35px; line-height:35px; text-align:center; font-size:14px; color:#fff;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;cursor:pointer;}
 .zd_box .check_list .determine { background-color:#22ac38;}
 .zd_box .check_list .cancel { background-color:#c7c7c7;}
 
@@ -127,9 +127,10 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .call_exist .info li em { color:#999; font-size:14px;font-weight:normal;}
 .call_exist .time {float:right;display:inline;margin:75px 80px 0 0;line-height:30px; font-size:16px;}
 .call_exist .time i {width:24px;height:24px;background:url("../images/kf_icon.png") no-repeat 0 -146px; float:left; display:inline;margin:3px 8px 0 0;}
-.call_exist .time b {font-weight:normal;font-size:30px;line-height:30px;color:#22ac38;float:right; display:inline; margin-left:15px;}
-.call_none {height:218px; text-align:center; line-height:218px;}
-.call_none p {position:relative; display:inline-block; padding:11px 0 0 77px;color:#999; font-size:24px;line-height:24px;}
+.call_exist .time em { float:left;}
+.call_exist .time b {font-weight:normal;font-size:30px;line-height:30px;color:#22ac38;display:inline-block; margin-left:15px;}
+.call_none {height:126px; text-align:center;padding-top:92px;}
+.call_none p {position:relative; display:inline; padding:8px 0 0 77px;color:#999; font-size:24px;line-height:24px;}
 .call_none p i {width:47px; height:47px; position:absolute; left:0;top:0;background:url("../images/kf_icon.png") no-repeat 0 -99px; }
 .tool_bar {border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;background:url("../images/jb_1.gif") repeat-x 0 0;height:126px;}
 .tool_bar div { float:left;}
@@ -165,7 +166,7 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .tool_bar .gd .exist .ico {background-position:0px -470px;}
 .tool_bar .gd .none .ico {background-position:-60px -470px;}
 .tool_bar .gd .exist .tit { color:#ff0000;}
-.tool_bar .bh {position:relative;}
+.tool_bar .bh {position:relative; z-index:99;}
 .tool_bar .bh .call_out {width:232px;padding:13px; border:1px solid #ddd; position:absolute; z-index:99;left:-47px;top:75px; overflow:hidden; background-color:#fff; display:none;}
 .tool_bar .bh .call_out p { font-size:14px;line-height:14px; padding:0 0 6px 0; color:#abadb3;}
 .tool_bar .bh .call_out .num {width:225px;border:1px solid #ddd; display:block; height:25px;line-height:25px;padding:6px 0 6px 5px;}
