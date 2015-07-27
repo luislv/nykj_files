@@ -1,0 +1,39 @@
+body{ font-family:微软雅黑, "Microsoft YaHei", 宋体; }
+.lay{ width:1000px; margin:0 auto; }
+.banner{ width:100%; position:absolute; top:0; left:50%; margin-left:-960px; }
+.banner img{ float:left; }
+.fenge{ height:436px; }
+.tit{ width:518px; margin:0 auto; position:relative; text-align:center; height:38px; }
+.tit h2{ position:relative; *top:-10px; z-index:1; display:inline; overflow:hidden; margin:0 auto; padding:0; font-family:微软雅黑, "Microsoft YaHei", 宋体; font-weight:normal; color:#f00; line-height:38px; background-color:#fff; }
+.tit h2 i{ width:5px; height:5px; overflow:hidden; display:inline-block; background:url("../images/fu.gif") no-repeat 0 0; position:relative; top:-11px; *top:-12px; }
+.tit h2 em{ font-size:38px; height:38px; position:relative; }
+.tit h2 .l{ left:-5px; }
+.tit h2 .r{ right:-5px; }
+.tit .x{ border-bottom:1px solid #b6babd; position:absolute; top:20px; left:0; height:0; overflow:hidden; width:100%; }
+.con_box{ padding:22px 43px 25px 32px; _margin-top:-15px; }
+.pic_pos{ display:inline; margin-top:32px; }
+.txt_list{ display:inline-block; }
+.txt_list h3{ font-size:16px; line-height:16px; color:#189a8e; padding:12px 0 5px 0; }
+.txt_list p{ line-height:30px; font-size:14px; color:#202121; text-indent:28px; }
+.txt_list p strong a{ color:#f00; }
+.con_01, .con_02, .con_03, .con_04{ clear:both; overflow:hidden; }
+.con_01{ padding-top:40px; background-color:#f7fafb; }
+.con_01 .tit h2{ background-color:#f8fcfd; }
+.con_01 .txt_list{ width:611px; }
+.con_02{ margin-top:35px; }
+.con_02 .list_box{ padding:15px 0 20px; _margin-top:-15px; }
+.con_02 .list_box .list{ width:473px; background-color:#dfebed; margin-top:14px; padding:8px 10px; display:inline; }
+.con_02 .list_box .list .pic{ float:left; position:relative; }
+.con_02 .list_box .list .pic p{ position:absolute; z-index:1; left:0; top:48px; width:201px; text-align:center; height:54px; line-height:54px; background:url("../images/zhe.png") repeat 0 0; color:#fff; font-size:32px; }
+.con_02 .list_box .list ul{ padding:17px 0 0 23px; float:left; display:inline; }
+.con_02 .list_box .list ul li{ font-size:14px; height:25px; line-height:25px; color:#0b0c0c; }
+.con_02 .list_box .list ul li strong a{ color:#f00; }
+.con_03{ margin-top:35px; padding-top:30px; background-color:#f8fcfd; }
+.con_03 .tit h2{ background-color:#f8fcfd; }
+.con_03 .txt_list{ width:580px; }
+.con_04{ margin-top:35px; padding-top:30px; background-color:#eaf5f7; }
+.con_04 .tit h2{ background-color:#eaf5f7; }
+.con_04 .pic_pos{ margin:20px 32px 0 0; padding-bottom:30px; }
+.con_04 .txt_list{ width:600px; }
+.footer{ background-color:#e3e7ec; margin-top:36px; padding:27px 0; text-align:center; }
+.footer p{ font-size:14px; color:#010100; line-height:25px; }
