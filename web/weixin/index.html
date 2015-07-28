@@ -11,33 +11,32 @@
     <meta http-equiv="cleartype" content="on">
     <title>详细资料</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <style type="text/css">
         *{ margin:0; padding:0; list-style-type:none; }
         a, img{ border:0; }
-        body{ font-size:12px;color:#333; }
-
-        .align_c { text-align:center}
-        .information_box{width:94%; margin-top:1rem;padding:0 3%;border-top:1px solid #dedede;font-size:1rem; }
+        body{ font-size:12px; color:#333; }
+        .align_c{ text-align:center }
+        .information_box{ width:94%; margin-top:1rem; padding:0 3%; border-top:1px solid #dedede; font-size:1rem; }
         /* select */
-        .cl_back { float:left;cursor:pointer;}
-        .sel_list{width:100%;position:relative; float:left; border-bottom:1px solid #dedede;}
-        .sel_list dt{ display:inline-block; line-height:28px; cursor:pointer;width:98%; padding:0.7rem 1%; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; position:relative; z-index:99; float:left; }
+        .cl_back{ float:left; cursor:pointer; }
+        .sel_list{ width:100%; position:relative; float:left; border-bottom:1px solid #dedede; }
+        .sel_list dt{ display:inline-block; line-height:28px; cursor:pointer; width:98%; padding:0.7rem 1%; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; position:relative; z-index:99; float:left; }
         .sel_list dt:hover, .sel_list dt.cur{ border:1px solid #409DFE; box-shadow:0 0 3px #409DFE; }
-        .sel_list dt em{ background:url(images/ico.gif) no-repeat right center;height:28px; display:inline-block; padding-right:20px; position:absolute;right:0; font-style:normal;}
-        .sel_list dd{ position:fixed;z-index:999; width:80%;left:10%;top:50%; border:1px solid #d2ccc4; background:#fff; display:none; }
-        .sel_list dd .list_t{ text-align:center; position:relative;padding:0.7rem 2%;}
-        .sel_list dd .list_t .btn_close {width:16px; height:16px; display:inline-block;position:absolute;right:0.7rem;top:0.7rem;background:url(images/close_bg.gif) no-repeat right center;cursor:pointer;}
-        .sel_list dd ul{display:block;}
-        .sel_list dd ul li {border-top:1px solid #dedede;width:100%;}
-        .sel_list dd ul li a{ display:block; text-align:center;padding:0.7rem 2%; }
+        .sel_list dt em{ background:url(images/ico.gif) no-repeat right center; height:28px; display:inline-block; padding-right:20px; position:absolute; right:0; font-style:normal; }
+        .sel_list dd{ position:fixed; z-index:999; width:80%; left:10%; top:50%; border:1px solid #d2ccc4; background:#fff; display:none; }
+        .sel_list dd .list_t{ text-align:center; position:relative; padding:0.7rem 2%; }
+        .sel_list dd .list_t .btn_close{ width:16px; height:16px; display:inline-block; position:absolute; right:0.7rem; top:0.7rem; background:url(images/close_bg.gif) no-repeat right center; cursor:pointer; }
+        .sel_list dd ul{ display:block; }
+        .sel_list dd ul li{ border-top:1px solid #dedede; width:100%; }
+        .sel_list dd ul li a{ display:block; text-align:center; padding:0.7rem 2%; }
         .sel_list dd ul li a:hover{ background:#f5f5f5; }
-        .inp_list {width:100%;position:relative; float:left; border-bottom:1px solid #dedede;line-height:28px;width:98%; padding:0.7rem 1%;}
-        .inp_list .info{float:left;width:39%;}
-        .inp_list input {width:59%;border:none;font-family:微软雅黑,黑体,宋体; color:#999;}
-        .sub_btn {padding:1.5rem 1% 0 1%; clear:both; }
-        .sub_btn input {width:100%;padding:0.7rem 0; border:none; background-color:#409DFE;font-family:微软雅黑,黑体,宋体; color:#fff; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;}
-        .fl_bg {position:fixed;top:0;left:0;z-index:998;width:100%; height:100%; background-color:#000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5; display:none; }
+        .inp_list{ width:100%; position:relative; float:left; border-bottom:1px solid #dedede; line-height:28px; width:98%; padding:0.7rem 1%; }
+        .inp_list .info{ float:left; width:39%; }
+        .inp_list input{ width:59%; border:none; font-family:微软雅黑, 黑体, 宋体; color:#999; }
+        .sub_btn{ padding:1.5rem 1% 0 1%; clear:both; }
+        .sub_btn input{ width:100%; padding:0.7rem 0; border:none; background-color:#409DFE; font-family:微软雅黑, 黑体, 宋体; color:#fff; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; }
+        .fl_bg{ position:fixed; top:0; left:0; z-index:998; width:100%; height:100%; background-color:#000; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity:0.5; opacity:0.5; display:none; }
     </style>
     <script type="text/javascript" src="/jquery-2.1.1.min.js"></script>
     <script type="text/javascript">
@@ -49,20 +48,20 @@
                 var dt = $(this).children("dt");
                 var tt = dt.find("em");
                 var dd = $(this).children("dd");
-                var dd_h = dd.height()/2;
-                var dd_bg =$("#fl_bg");
-                dd.css("margin-top",-dd_h);
+                var dd_h = dd.height() / 2;
+                var dd_bg = $("#fl_bg");
+                dd.css("margin-top", -dd_h);
                 var _show = function () {
                     dd.slideDown(10);
                     dt.addClass("cur");
                     s.css("z-index", z + 1);
-                    $("#fl_bg").css("display","block");
+                    $("#fl_bg").css("display", "block");
                 };   //展开效果
                 var _hide = function () {
                     dd.slideUp(10);
                     dt.removeClass("cur");
                     s.css("z-index", z);
-                    $("#fl_bg").css("display","none");
+                    $("#fl_bg").css("display", "none");
 
                 };    //关闭效果
                 dt.click(function () {
@@ -81,19 +80,30 @@
 
             })
             /*通用-文本框默认文字*/
-            $('.inp_list input').each(function(){
+            $('.inp_list input').each(function () {
                 var txt = $(this).val();
-                $(this).focus(function(){
-                    if(txt === $(this).val()) $(this).val("");
-                }).blur(function(){
-                    if($(this).val() == "") $(this).val(txt);
+                $(this).focus(function () {
+                    if (txt === $(this).val()) $(this).val("");
+                }).blur(function () {
+                    if ($(this).val() == "") $(this).val(txt);
                 });
             })
-
+            $(".sub_btn input").click(function(){
+                var ccc = "<div id='loading_bg' class='load'></div><div id='loading_ico'  class='load'></div>"
+                 $("body").append(ccc);
+                //  $(".loading").remove();
+            });
+          //  var ccc = "<div id='loading_bg' class='loading'></div><div id='loading_ico'  class='loading'></div>"
+          //  $("html").append(ccc);
+          //  $(".loading").remove();
         })
     </script>
 </head>
 <body>
+ <style type="text/css">
+    #loading_ico{ position:absolute; top:50%; left:50%; margin-left:-16px; margin-top:-16px; z-index:999; height:32px; width:32px; overflow:hidden; background:url("images/022.gif") no-repeat 0 0; }
+    #loading_bg{ position:fixed; top:0; left:0; z-index:998; width:100%; height:100%; background-color:#000; filter:alpha(opacity=10); -moz-opacity:0.1; -khtml-opacity:0.1; opacity:0.1; }
+</style>
 <div class="wrapper" id="wrapper">
     <div class="fresh-wrap">
         <nav class="navbar align_c  clearfix ">
@@ -159,18 +169,18 @@
                 </dd>
             </dl>
             <dl class="sel_list">
-            <dt>自费标志<em>0-不指定挂自费号</em></dt>
-            <dd>
-                <div class="list_t"><i class="btn_close"></i>患者类型</div>
-                <ul>
-                    <li><a href="#">选项一</a></li>
-                    <li><a href="#">选项二</a></li>
-                </ul>
-            </dd>
-        </dl>
-            <div class="inp_list"><span class="info">医保门特住院号</span><input value="请输入" type="text" /></div>
-            <div class="inp_list"><span class="info">医疗证号</span><input value="请输入" type="text" /></div>
-            <div class="sub_btn"><input type="submit" value="提交"  /></div>
+                <dt>自费标志<em>0-不指定挂自费号</em></dt>
+                <dd>
+                    <div class="list_t"><i class="btn_close"></i>患者类型</div>
+                    <ul>
+                        <li><a href="#">选项一</a></li>
+                        <li><a href="#">选项二</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <div class="inp_list"><span class="info">医保门特住院号</span><input value="请输入" type="text"/></div>
+            <div class="inp_list"><span class="info">医疗证号</span><input value="请输入" type="text"/></div>
+            <div class="sub_btn"><input type="submit" value="提交"/></div>
         </div>
         <div class='fl_bg' id='fl_bg'></div>
     </div>

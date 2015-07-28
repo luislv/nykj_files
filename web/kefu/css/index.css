@@ -50,7 +50,6 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .search_box .l_box .list .r {border:1px solid #eee; float:right;width:181px; position:relative;}
 .search_box .l_box .list .time {width:153px;}
 .search_box .l_box .list .num {width:175px;}
-.search_box .l_box .list .time {}
 .search_box .l_box .list .rl_btn {width:16px;height:16px; display:inline-block; position:absolute; right:7px;top:6px;background:url("../images/kf_icon.png") no-repeat 0 -604px; cursor:pointer;}
 .search_box .l_box .check {width:81px; height:30px; line-height:30px; text-align:center; background-color:#22ac38; font-size:16px; color:#fff;font-family:"Microsoft yahei", "微软雅黑", arial, sans-serif; border:none;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; position:absolute;right:16px;top:61px;}
 .search_box .r_box { float:left; display:inline; padding:48px 0 0 48px;}
@@ -67,7 +66,6 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .zd_box .check_list .btn span {width:102px; height:35px; line-height:35px; text-align:center; font-size:14px; color:#fff;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;cursor:pointer;}
 .zd_box .check_list .determine { background-color:#22ac38;}
 .zd_box .check_list .cancel { background-color:#c7c7c7;}
-
 
 .call_list {width:1250px;}
 .call_list span { float:left; display:inline;padding-right:20px;margin-right:10px;overflow:hidden; text-align:center;}
@@ -111,14 +109,14 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .user_info a { color:#000;}
 .user_info div { float:left;display:inline; padding:0 25px 0 20px;}
 .user_info em { color:#999;}
-.user_info .exit {width:63px; height:22px;padding:0 0 0 20px;margin-top:15px; line-height:20px;text-align:center; overflow:hidden;background:url(../images/kf_icon.png) #ffad77 no-repeat 7px -66px;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
-.user_info .exit a { color:#fff; font-size:12px;}
+.user_info .exit {width:63px; height:22px;padding:0 0 0 20px;margin-top:15px; line-height:20px;text-align:center; overflow:hidden;background:url(../images/kf_icon.png) no-repeat  #ffad77 7px -66px;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;}
+.user_info .exit a { color:#fff; font-size:12px; display:block; background-color:#ffad77;}
 .login_log { background-color:#f0f0f0; border-top:1px solid #e8e8e8;height:39px;line-height:39px;}
 .login_log span { color:#666; float:left;display:inline; padding:0 10px 0 20px;}
 .call_box {background-color:#fff;border:1px solid #eee;margin-top:25px;}
 .call_exist {height:218px;}
 .call_exist .now {height:38px;line-height:38px; padding-left:20px; color:#fff; font-size:14px; background-color:#30baf7;}
-.call_exist .call_log { float:left; display:inline;padding:35px 0 0 35px;}
+.call_exist .call_log {position:absolute;padding:35px 0 0 35px;}
 .call_exist .call_ico {width:110px; height:110px; float:left; background-image:url("../images/in_out.png"); background-repeat:no-repeat;}
 .call_exist  .in { background-position:0 -110px;}
 .call_exist  .out {background-position:0 0;}
@@ -176,11 +174,10 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .table_scroll {width:1030px; *padding-bottom:18px; overflow-x:auto; overflow-y:hidden; margin-top:20px; clear:both;}
 .table_box {padding:30px 35px;}
 
-
-.cue_box {width:440px; height:px; position:fixed; right:0;bottom:0;border:1px solid #ddd; background-color:#fff; padding-bottom:30px;}
+.cue_box {width:440px; height:px; position:fixed; _position:absolute; right:0;bottom:0;border:1px solid #ddd; background-color:#fff; padding-bottom:50px;}
 .cue_box .t {height:39px;line-height:39px; background-color:#30baf7;padding-left:15px; color:#fff; font-size:14px;}
 .cue_box .close {width:10px; height:10px;background:url("../images/kf_icon.png") no-repeat -10px -89px; float:right;display:inline;margin:13px 13px 0 0; cursor:pointer;}
-.cue_box .info { float:left; display:inline; padding:20px 0 0 30px;}
+.cue_box .info {position:absolute;  padding:20px 0 0 30px;}
 .cue_box .info li { height:35px; line-height:30px; color:#000; font-size:14px;}
 .cue_box .info li em { color:#999;font-weight:normal;}
 .cue_box .btn { float:right; display:inline;margin:47px 28px 0 0;}

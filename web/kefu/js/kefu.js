@@ -31,6 +31,16 @@ function CoLeeSelect(thisObj){
         thisObj.blur();
     }
 }
+function cue_box(){
+    /* 右下角提示框 */
+    var cue_height = $(".cue_box").height();
+    $(".cue_box").css("bottom",-cue_height);
+    $(".cue_box").animate({bottom:'0px'},"slow");
+    $(".cue_box .close").bind("click",function(){
+        $(".cue_box").animate({bottom:"-200px"},"slow");
+    });
+}
+
 $(function () {
     /*通用-文本框默认文字*/
     $('.cl_value li input').each(function(){
@@ -93,12 +103,3 @@ $(function () {
     });
     cue_box();
 });
-function cue_box(){
-    /* 右下角提示框 */
-    var cue_height = $(".cue_box").height();
-    $(".cue_box").css("bottom",-cue_height);
-    $(".cue_box").animate({bottom:'0px'},"slow");
-    $(".cue_box .close").bind("click",function(){
-        $(".cue_box").animate({bottom:"-200px"},"slow");
-    });
-}
