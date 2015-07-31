@@ -1,0 +1,7 @@
+/*医生助手公用部分*/
+.f_blue {color:#0066ff;}
+.fl_l {float:left;}
+.fl_r {float:right;}
+.ans_box  {position:fixed;left:50%;top:50%;width:800px; height:500px;margin-left:-400px; margin-top:-250px;border:1px solid red; background-color: #fff;}
+/*医生助手*/
+.panel .panel_zt {line-height: 28px;margin-right:25px;}

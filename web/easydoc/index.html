@@ -1,10 +1,119 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>医生助手</title>
+<!DOCTYPE HTML>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>医生助手_医生咨询</title>
+    <link  type="text/css"   rel="stylesheet" href="http://nykj.91160.com/style/base.min.css">
+    <link  type="text/css"  rel="stylesheet" href="http://nykj.91160.com/style/admin.min.css">
+    <!--<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>-->
+    <!--<script src="//hm.baidu.com/hm.js?c4e8e5b919a5c12647962ea08462e63b"></script>-->
+    <!--<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.9.1.min.js"></script>-->
+    <script>window.jQuery || document.write('<script src="http://nykj.91160.com/script/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+    <!--<script src="http://nykj.91160.com/script/jquery-migrate-1.1.1.min.js"></script>
+    <link  type="text/css"  rel="stylesheet" href="http://nykj.91160.com/script/artDialog/skins/default.css">-->
+    <!--  医生助手css、js文件 -->
+    <link type="text/css" rel="stylesheet" href="css/easydoc.css" />
+    <script type="text/javascript"  src="js/easydoc.js"></script>
 </head>
 <body>
+<div class="admin">
+    <form id="form1" class="panel panel_ctrl" method="post">
+        <fieldset>
+            <a href="#" target="_blank" class="panel_zt f_blue fl_r">未处理：3条</a>
+            <label for="stype">筛选：</label>
+            <select id="type" name="type">
+                <option value="">未处理</option>
+                <option value="">已处理</option>
+            </select>
+            <select name="status">
+                <option value="" selected="">所有渠道</option>
+                <option value="">安卓端</option>
+                <option value="">IOS</option>
+            </select>
+            <label>医生姓名/电话/ID：</label>
+		  <span class="sclass" id="stype_1">
+			<label for="unit_id"><input type="text" class="input_text" name="keyword" value="" maxlength="11"></label>
+		  </span>
+            <input class="btn js-loading-trigger" type="submit" id="btnQuery" name="btnQuery" value="查询">
+        </fieldset>
+        <input type="hidden" name="pay_state" value="">
+    </form>
+    <table id="hospital-table" class="table table_hover table_fluid">
+        <caption></caption>
+        <thead>
+        <tr>
+            <th style="width: 5%;">ID</th>
+            <th style="width: 9%;">状态</th>
+            <th style="width: 12%;">时间</th>
+            <th style="width: 5%;">用户</th>
+            <th>内容</th>
+            <th style="width: 5%;">渠道</th>
+            <th style="width: 9%;">手机号</th>
+            <th style="width: 5%;">操作</th>
+        </tr>
+        </thead>
+        <tbody class="typo_center">
+        <tr>
+            <td>312</td>
+            <td>未处理
+            </td>
+            <td>09:02<br />2015-07-30
+            </td>
+            <td>廖翔(1000)<br />南山人民医院疼痛科</td>
+            <td>请问我的二维码名片在哪里？怎么查看？怎么分享</td>
+            <td>IOS</td>
+            <td>18665824241</td>
+            <td>
+                <a class="refund" style="color:blue;" href="javascript:void(0);"   onclick="">回复</a>
+            </td>
+        </tr>
+        <tr>
+            <td>312</td>
+            <td>未处理
+            </td>
+            <td>09:02<br />2015-07-30
+            </td>
+            <td>廖翔(1000)<br />南山人民医院疼痛科</td>
+            <td>请问我的二维码名片在哪里？怎么查看？怎么分享</td>
+            <td>IOS</td>
+            <td>18665824241</td>
+            <td>
+                <a class="refund" style="color:blue;" href="javascript:void(0);"     onclick="">回复</a>
+            </td>
+        </tr>
 
+
+        </tbody>
+        <tfoot>
+        <tr>
+            <td class="typo_right" colspan="12">
+                <div>共有<font color="#FF0000">299</font>条记录&nbsp;<a
+                        href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=1">首页</a> | <a
+                        href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=1">上一页</a> | <a
+                        href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=3">下一页</a> | <a
+                        href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=30">末页</a> &nbsp;&nbsp;<a
+                        href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=1">1</a> <font
+                        color="#FF0000">2</font> <a href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=3">3</a>
+                    <a href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=4">4</a> <a
+                            href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=5">5</a> <a
+                            href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=6">6</a> <a
+                            href="/index.php?c=DocUser&amp;a=viplist&amp;status=0&amp;p=7">7</a></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!--回复弹出层-->
+<div class="ans_box"  id="float_box">
+222
+</div>
 </body>
 </html>
