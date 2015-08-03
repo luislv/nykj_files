@@ -2,6 +2,45 @@
 .f_blue {color:#0066ff;}
 .fl_l {float:left;}
 .fl_r {float:right;}
-.ans_box  {position:fixed;left:50%;top:50%;width:800px; height:500px;margin-left:-400px; margin-top:-250px;border:1px solid red; background-color: #fff;}
+.ans_box  {position:fixed;left:50%;width:800px;margin-left:-300px;border:1px solid #366da6; background-color: #fff; display: none;}
+.ans_box .close {border:1px solid red; cursor: pointer;width:25px; height:22px;position:absolute;right:0;top:0;}
+.float_bg {width:100%;height:100%; background-color: #000;position:absolute;left:0;top:0; opacity: 0.5;display:none;}
+.refund { cursor: pointer;}
 /*医生助手*/
 .panel .panel_zt {line-height: 28px;margin-right:25px;}
+
+.doc_info {border-bottom:1px dotted #666;overflow:hidden;}
+.doc_info span {display:inline-block;float:left;padding: 8px 10px;}
+.doc_info .name {font-weight: bold;font-size:18px;line-height: 22px;}
+.doc_info .dw {line-height: 18px;}
+.doc_info .ks {}
+
+.refund_box {border-bottom:1px dotted #666;padding:10px; display:inline-block;}
+.refund_box .refund_t {border-bottom: 1px solid #5289c1;}
+.refund_box .refund_t span {border:1px solid #5289c1;border-bottom:none; background-color: #fff;display: inline-block;margin-right: 10px;padding:3px 10px; color: #5289c1;cursor: pointer;}
+.refund_box .refund_t .active {background-color:#5289c1;color:#fff;}
+.refund_c {padding:10px 5px;}
+.refund_c .t { font-weight: bold;padding-top:5px;display:inline-block;}
+.refund_c .txt {width:710px; float: right;}
+.refund_c .sub_btn {display: block; float: right; clear:both; background-color: #5289c1; border: none;color:#fff;padding:3px 15px;margin:10px 5px 0 0;}
+.log .t {border-bottom: 1px solid #999; padding: 5px 10px; font-weight: bold;margin-bottom: 0px;}
+.log ul { margin: 15px 20px;padding: 0; height:200px;overflow: auto;}
+.log ul li {line-height: 22px;}
+.log ul .qus{ color: #009999;padding-bottom: 5px;}
+.log ul .ans{}
+
+.help_tit {padding:5px ;font-weight: bold;border-bottom: 1px solid #5289c1; font-size: 14px;}
+
+.news_t {border-bottom: 1px solid #5289c1;margin-top: 15px;}
+.news_t span {border:1px solid #5289c1;border-bottom:none; background-color: #fff;display: inline-block;margin-right: 10px;padding:3px 10px; color: #5289c1;cursor: pointer;}
+.news_t .active {background-color:#5289c1;color:#fff;}
+.send_to { padding:10px;}
+.send_to strong,.send_to input {margin-right:10px;}
+
+.panel .xz { display:inline-block;}
+.panel .xz input {float:left; display:inline;margin:3px 5px 0 0;}
+
+.new_box {padding:5px  20px 10px 20px;}
+.new_box .np_t span {border:1px solid #5289c1; background-color: #fff;display: inline-block;margin-right: 10px;padding:3px 10px; color: #5289c1;cursor: pointer;}
+.new_box .np_t .ts { float: right;}
+.new_box .np_t .ts  input {float:left;display:inline; margin:3px 5px 0 0;}

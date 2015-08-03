@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>医生助手_医生咨询</title>
+    <link  type="text/css"   rel="stylesheet" href="http://nykj.91160.com/style/base.min.css">
+    <link  type="text/css"  rel="stylesheet" href="http://nykj.91160.com/style/admin.min.css">
+    <!--<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>-->
+    <!--<script src="//hm.baidu.com/hm.js?c4e8e5b919a5c12647962ea08462e63b"></script>-->
+    <!--<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.9.1.min.js"></script>-->
+    <script>window.jQuery || document.write('<script src="http://nykj.91160.com/script/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+    <!--<script src="http://nykj.91160.com/script/jquery-migrate-1.1.1.min.js"></script>
+    <link  type="text/css"  rel="stylesheet" href="http://nykj.91160.com/script/artDialog/skins/default.css">-->
+    <!--  医生助手css、js文件 -->
+    <link type="text/css" rel="stylesheet" href="css/easydoc.css" />
+    <script type="text/javascript"  src="js/easydoc.js"></script>
+</head>
+<body>
+<div class="admin">
+    <div class="help_tit">群发消息：</div>
+    <div class="news">
+        <div class="news_t">
+            <span class="active">新建</span>
+            <span>已发送</span>
+            <span>草稿箱</span>
+        </div>
+    </div>
+    <div class="send_to"><strong>群发对象</strong><input type="checkbox"  /><label>所有用户</label></div>
+    <form id="form1" class="panel panel_ctrl" method="post">
+        <fieldset>
+            <label for="stype">选择：</label>
+            <select id="type" name="type">
+                <option value="">-请选择城市-</option>
+            </select>
+            <select name="status">
+                <option value="">-请选择医院-</option>
+            </select>
+            <select name="status">
+                <option value="">-请选择科室-</option>
+            </select>
+            <select name="status">
+                <option value="">-请选择医院-</option>
+            </select>
+            <select name="status">
+                <option value="">-未认证-</option>
+            </select>
+            <span class="xz"><input type="checkbox" /><label>咨询</label></span>
+            <span class="xz"><input type="checkbox" /><label>VIP</label></span>
+            <span class="xz"><input type="checkbox" /><label>加号</label></span>
+            <span class="xz"><input type="checkbox" /><label>推荐</label></span>
+
+        </fieldset>
+        <input type="hidden" name="pay_state" value="">
+    </form>
+    <div class="new_box">
+        <div class="np_t"><div class="ts">发送推送提醒<input type="checkbox" /> </div> <span>文字消息</span><span>图片消息</span><span>图文消息</span></div>
+        <div class="np_c"></div>
+    </div>
+</div>
+
+</body>
+</html>
