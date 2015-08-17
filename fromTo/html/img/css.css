@@ -1,0 +1,996 @@
+@charset "UTF-8";
+/* CSS Document */
+body{ font:12px/1.5 Tahoma, Helvetica, Arial, '閿熸枻鎷烽敓鏂ゆ嫹','Microsoft YaHei', sans-serif; color:#333;min-height:400px}
+body,hr,p,blockquote,dl,dt,dd,div,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,tr,th,td{ margin:0; padding:0;}
+
+select{ height:30px; border:1px solid #BFD8DF; padding:5px;}
+image{ border:0px;}
+li{ display:block;}
+h1,h2,h3,h4,h5,h6{ margin:10px 0px; font-family:"Microsoft Yahei"; }
+table{ border:0px;}
+a{ text-decoration:none; color:#0056AB;cursor:pointer;display:inline-block;text-align:center;line-height:24px;}
+a:hover{ text-decoration:none; font-weight:bold;}
+.green{ color:green; }
+a.red:hover, a.red, .red{ color:red;}
+.clear{ clear:both;}
+.fl{ float:left;}
+.fr{ float:right;}
+.select{ width:162px;}
+
+
+/**导航栏***/
+.leftnav{height:100%;
+background: #34C5F0 linear-gradient(to right, #34C5F0 0px, #fcecff 100%) repeat-y scroll 0 0;
+}
+.nav_logo{height:90px; width:100%;background: url("../html/img/logo.png") no-repeat center top;}
+.nav_menu a{color:#FFF; font-weight: 500; font-size:14px;letter-spacing:8px; width:100%; padding-top:32px; border-bottom: #D0F2FF 1px dotted; }
+.nav_menu a:hover,.nav_footer a:hover,.nav_footer a.cur{font-weight:bold; background: #A2D4FF  linear-gradient(to right, #A2D4FF 0px, #f7f7f7 100%) repeat-y scroll 0 0;}
+
+.nav_footer{ width:65px; height:30px; position: absolute; bottom:5px; padding-bottom:20px;}
+.nav_footer a{color:#FFF; width:100%;}
+
+.topnav{ width:100%; height:102px; min-width:1030px; overflow:hidden; background: #0190d4 none no-repeat left center;}
+.topnav .nav_menu a{ height:100%; width:70px;  padding-top:3px; border-left: #D0F2FF 1px dotted; border-bottom: #D0F2FF 0px dotted; font-weight: 100; font-size:14px;letter-spacing:1px;}
+.topnav .nav_menu a:hover{background: #34a6dd none repeat scroll 0 0;}
+.topnav .nav_footer{right:5px;}
+.topnav img{ border: 0 none; display:block; padding:10px 22px 2px;}
+
+#leftmenus {height: 100%; overflow: hidden; border:#34C5F0 1px groove; z-index:99px; background-color:#FFF; width:173px;}
+#leftmenus h3 {width:100%;background: #eef1f6 url("../html/img/admin/icon_down.gif") repeat scroll 0 0;border-bottom: 1px solid #c1c4c9;cursor: pointer;font: bold 14px/30px 宋体;height: 30px;margin: 0;padding-left: 20px;
+}
+#leftmenus h3.cur {background: #0190d4 url("../html/img/admin/icon_up.gif") repeat scroll 0 0;color: #fff;}
+
+.menu-treeview{display: block; overflow: hidden; padding: 0;}
+.menu-treeview a{width:100%; height: 25px; line-height:24px; background:#F3F3F3;margin-bottom: 1px;padding:0px 10px 0px 40px; text-align:left;}
+.menu-treeview a:hover {font-weight: normal; background: #e5e5e5 url("../html/img/admin/page.png") no-repeat scroll 16px 5px;}
+.menu-treeview a.cur {background: #e0ecff url("../html/img/admin/page.png") no-repeat scroll 16px 5px;}
+
+
+.page-header{padding-top:0px; height:35px; line-height:24px;overflow:hidden;background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #e0ecff 0px, #FCFCFC 100%) repeat-x scroll 0 0}
+.page-title-btn{position: absolute;right: 5px;top: auto; bottom:2px; }
+.page-title-btn a{background: transparent url('button_bg.png') repeat-x scroll 0 0;  border: 1px #aac8cc solid; height:24px;padding:0px;}
+
+/***easyui***/
+.panel-header, .panel-body {border-width: 0px;/*border-bottom-width: 1px;*/}
+.tabs {
+    background: #f4f4f4 linear-gradient(to bottom, #FCFCFC 0px, #e0ecff 100%) repeat-x scroll 0 0;
+    border-bottom: 1px solid #bbb;
+    font-size: 12px;
+    height: 26px;
+    list-style-type: none;
+    margin: 0;
+    padding: 3px 0 0 15px;
+   /* width: 100%;*/
+}
+.tabs li {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #eee 0%, #fff 50%);
+    border: 1px solid #bbb;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: inline-block;
+    float: left;
+    margin-top: -2px;
+    margin-right: 4px;
+    padding: 0;
+    position: relative;
+}
+.tabs li a.tabs-inner {
+    color: #15428b;
+	border-width: 0;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    margin: 0;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0) none repeat-x scroll 0 0;
+}
+.tabs li a.tabs-inner:hover {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    background-color: #eee;
+    background-image: linear-gradient(to top, #ccc 0%, #eee 50%);
+}
+.tabs li.tabs-selected {
+    border-color: #bbb #bbb #fff;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+}
+.tabs li.tabs-selected a.tabs-inner {
+    background-image: linear-gradient(to bottom,#e0ecff 0px,  #fff 100%);
+    /*background: #fff none repeat scroll 0 0;*/
+    border-bottom: 1px solid #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #000;
+    outline: medium none;
+}
+.tabs li.tabs-selected a.tabs-inner:hover {
+    cursor: default;
+}
+.global_tit {
+    /*background-color: #e0ecff;
+    border-bottom: 1px solid #bad4f7;*/
+    color: #00008b;
+    font-family: 微软雅黑;
+    font-size: 18px;
+    letter-spacing: 5px;
+    line-height: 18px;
+    margin-bottom: 5px;
+    padding: 6px 0;
+    text-align: center;
+    width: 500px;
+    position: relative;
+	left: 40%;
+	top: -32px;
+    z-index: 999;
+}
+
+/**页面**/
+.bottom_float {
+    background-color: #fff;
+    border-top: 1px solid #eaeaea;
+    bottom: 0;
+    padding: 5px 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+}
+.panel-tool-back {
+    background: rgba(0, 0, 0, 0) url("panel_tools.png") no-repeat scroll 0 -32px;
+}
+.table {
+    background: #fff none repeat scroll 0 0;
+    border-left: 1px solid #eaeaea;
+    border-spacing: 0;
+    border-top: 1px solid #eaeaea;
+    margin: 0px;
+    padding: 0;
+    width: 100%;
+}
+.table_min {
+    min-width: 1000px;
+}
+.table_header {
+    background: #f4f4f4 linear-gradient(to bottom, #FCFCFC 0px, #e0ecff 100%) repeat-x scroll 0 0;
+    border-bottom: 1px dashed #ccc;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 24px;
+    padding-left: 10px;
+	text-align: left;
+	margin-top:3px;
+}
+.table_header_bottom {
+    background: #f4f4f4 linear-gradient(to bottom, #e0ecff 0px, #FCFCFC 100%) repeat-x scroll 0 0;
+    border-bottom: 1px dashed #ccc;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 24px;
+    padding-left: 10px;
+	text-align: left;
+}
+.right-tool-buts{ float:right; padding-right:5px; font-weight:500;}
+.table td, .table th {
+    background-color: #eef1f6;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    font-size: 12px;
+	 line-height:24px;
+    padding: 2px 5px;
+}
+.table .t_tip {
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+.table th, .table .t_title, .table .t_title_l {
+    background: #e0ecff none repeat scroll 0 0;
+    color: #333;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: center;
+    vertical-align: middle;
+}
+.table .t_title_l {
+    text-align: left;
+}
+.table th {
+    color: #15428b;
+    text-align: left;
+}
+.table_blank {
+    border: 0 none;
+    width: 100%;
+}
+.table_blank td {
+    border: 0 none;
+}
+.table_blank .t_title {
+    background: #fff none repeat scroll 0 0;
+    color: #333;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: right;
+}
+
+.btn, .btn_w95, .btn_w120, .btn_w140, .btn_w160 {
+    border: medium none;
+    color: white;
+    cursor: pointer;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    width: 68px;
+}
+.btn {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn.gif") no-repeat scroll 0 0;
+}
+.btn_w95 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_w95.gif") no-repeat scroll 0 0;
+    width: 95px;
+}
+.btn_w120 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_w120.gif") no-repeat scroll 0 0;
+    width: 120px;
+}
+.btn_w140 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_w140.gif") no-repeat scroll 0 0;
+    width: 140px;
+}
+.btn_w160 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_w160.gif") no-repeat scroll 0 0;
+    width: 160px;
+}
+.btn_add, .btn_addA, .btn_adds, .btn_search, .btn_searchA, .btn_sort, .btn_export, .btn_pub, .btn_editor, .btn_del, .btn_CheckRecord, .btn_GenPlan, .btn_setup, .btn_statistical, .btn_call, .btn_msg, .btn_print {
+    border: medium none;
+    color: white;
+    cursor: pointer;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 18px;
+    width: 68px;
+}
+.btn_add {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_add.gif") no-repeat scroll 0 0;
+}
+.btn_addA {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_addA.gif") no-repeat scroll 0 0;
+    width: 93px;
+}
+.btn_adds {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_adds.gif") no-repeat scroll 0 0;
+    width: 93px;
+}
+.btn_search {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_search.gif") no-repeat scroll 0 0;
+}
+.btn_searchA {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_searchA.gif") no-repeat scroll 0 0;
+    width: 93px;
+}
+.btn_sort {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_sort.gif") no-repeat scroll 0 0;
+}
+.btn_export {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_export.gif") no-repeat scroll 0 0;
+}
+.btn_pub {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_pub.gif") no-repeat scroll 0 0;
+}
+.btn_editor {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_editor.gif") no-repeat scroll 0 0;
+}
+.btn_del {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_del.gif") no-repeat scroll 0 0;
+}
+.btn_CheckRecord {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_CheckRecord.gif") no-repeat scroll 0 0;
+    width: 110px;
+}
+.btn_GenPlan {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_GenPlan.gif") no-repeat scroll 0 0;
+    width: 93px;
+}
+.btn_setup {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_setup.gif") no-repeat scroll 0 0;
+}
+.btn_statistical {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_statistical.gif") no-repeat scroll 0 0;
+    width: 110px;
+}
+.btn_call {
+    background: rgba(0, 0, 0, 0) url("../html/img/admin/btn_call.gif") no-repeat scroll 0 0;
+}
+.btn_msg {
+    background: rgba(0, 0, 0, 0) url("../html/img/admin/btn_msg.gif") no-repeat scroll 0 0;
+}
+.btn_print {
+    background: rgba(0, 0, 0, 0) url("../html/img/admin/btn_print.gif") no-repeat scroll 0 0;
+}
+.btn_save, .btn_save2, .btn_save3, .btn_return, .btn_answer, .btn_hangUp {
+    border: medium none;
+    cursor: pointer;
+    font: bold 12px/34px "锟斤拷锟斤拷";
+    height: 34px;
+    text-align: center;
+    vertical-align: middle;
+    width: 89px;
+}
+.btn_save {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_determine_01.gif") no-repeat scroll 0 0;
+    color: white;
+    margin-right: 15px;
+}
+.btn_save3 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_determine3_01.gif") no-repeat scroll 0 0;
+    color: white;
+    margin-right: 15px;
+    width: 150px;
+}
+.btn_save3:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_determine3_02.gif") no-repeat scroll 0 0;
+}
+.btn_return {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_cancel_01.gif") no-repeat scroll 0 0;
+    color: #333;
+}
+.btn_save:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_determine_02.gif") no-repeat scroll 0 0;
+}
+.btn_return:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_cancel_02.gif") no-repeat scroll 0 0;
+}
+.btn_answer {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_answer.gif") no-repeat scroll 0 0;
+    color: #333;
+    padding-left: 20px;
+    width: 89px;
+}
+.btn_hangUp {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_hangUp.gif") no-repeat scroll 0 0;
+    color: #333;
+    padding-left: 20px;
+    width: 89px;
+}
+.btn_answer:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_answer_02.gif") no-repeat scroll 0 0;
+}
+.btn_hangUp:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_hangUp_02.gif") no-repeat scroll 0 0;
+}
+.btn_save2 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_determine2_01.gif") no-repeat scroll 0 0;
+    color: white;
+    font-weight: normal;
+    height: 28px;
+    line-height: 26px;
+    margin-right: 15px;
+    width: 65px;
+}
+.btn_return2 {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #eee 0%, #fff 50%);
+    border: medium none;
+    border-radius: 4px;
+    cursor: pointer;
+    font: 12px/22px "锟斤拷锟斤拷";
+    height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    width: 65px;
+}
+.btn_return2:hover {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    background-color: #eee;
+    background-image: linear-gradient(to top, #ccc 0%, #eee 50%);
+}
+input.ico_check, input.ico_del, input.ico_view, input.ico_stop, input.ico_tag, input.ico_vote, input.ico_mail, input.ico_key, input.ico_clock, input.ico_editor, input.ico_add, input.ico_tel, input.ico_pub, input.ico_deal, input.ico_notice, input.ico_reply, input.ico_emport, input.ico_nodeal, input.ico_pubopen, input.ico_pubclose, input.ico_copy, input.ico_registration, input.ico_export, input.ico_archive, input.ico_public, input.ico_publicclose, input.ico_associat, input.ico_select, input.ico_collection, input.ico_collectionclose, input.ico_play, input.ico_playclose, input.ico_output, input.ico_rule {
+    background: rgba(0, 0, 0, 0) url("../html/img/admin/ico_btns.png") no-repeat scroll 0 0;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 22px;
+    line-height: 22px;
+    margin-right: 5px;
+    padding: 0;
+    width: 22px;
+}
+input.ico_check:hover, input.ico_del:hover, input.ico_view:hover, input.ico_stop:hover, input.ico_tag:hover, input.ico_vote:hover, input.ico_mail:hover, input.ico_key:hover, input.ico_clock:hover, input.ico_editor:hover, input.ico_add:hover, input.ico_tel:hover, input.ico_pub:hover, input.ico_deal:hover, input.ico_notice:hover, input.ico_reply:hover, input.ico_emport:hover, input.ico_nodeal:hover, input.ico_pubopen:hover, input.ico_pubclose:hover, input.ico_copy:hover, input.ico_registration:hover, input.ico_export:hover, input.ico_archive:hover, input.ico_public:hover, input.ico_publicclose:hover, input.ico_associat:hover, input.ico_select:hover, input.ico_collection:hover, input.ico_collectionclose:hover, input.ico_play:hover, input.ico_playclose:hover, input.ico_output:hover, input.ico_rule:hover {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+input.ico_check {
+    background-position: -22px 0;
+}
+input.ico_del {
+    background-position: -22px -30px;
+}
+input.ico_view {
+    background-position: -22px -60px;
+}
+input.ico_stop {
+    background-position: -22px -90px;
+}
+input.ico_tag {
+    background-position: -22px -120px;
+}
+input.ico_vote {
+    background-position: -22px -150px;
+}
+input.ico_mail {
+    background-position: -22px -180px;
+}
+input.ico_key {
+    background-position: -22px -210px;
+}
+input.ico_clock {
+    background-position: -22px -240px;
+}
+input.ico_editor {
+    background-position: -22px -270px;
+}
+input.ico_add {
+    background-position: -22px -300px;
+}
+input.ico_tel {
+    background-position: -22px -330px;
+}
+input.ico_pub {
+    background-position: -22px -360px;
+}
+input.ico_deal {
+    background-position: -22px -390px;
+}
+input.ico_notice {
+    background-position: -22px -420px;
+}
+input.ico_reply {
+    background-position: -22px -450px;
+}
+input.ico_nodeal {
+    background-position: -22px -480px;
+}
+input.ico_pubopen {
+    background-position: -22px -510px;
+}
+input.ico_pubclose {
+    background-position: -22px -540px;
+}
+input.ico_copy {
+    background-position: -22px -570px;
+}
+.t_operate {
+    height: 50px;
+    text-align: center;
+}
+input.ico_registration {
+    background-position: -22px -600px;
+}
+input.ico_export {
+    background-position: -22px -630px;
+}
+input.ico_archive {
+    background-position: -22px -660px;
+}
+input.ico_public {
+    background-position: -22px -690px;
+}
+input.ico_publicclose {
+    background-position: -22px -720px;
+}
+input.ico_associat {
+    background-position: -22px -750px;
+}
+input.ico_select {
+    background-position: -22px -780px;
+}
+input.ico_collection {
+    background-position: -22px -810px;
+}
+input.ico_collectionclose {
+    background-position: -22px -840px;
+}
+input.ico_play {
+    background-position: -22px -870px;
+}
+input.ico_playclose {
+    background-position: -22px -900px;
+}
+input.ico_output {
+    background-position: -22px -930px;
+}
+input.ico_rule {
+    background-position: -22px -960px;
+}
+input.ico_registration {
+    background: rgba(0, 0, 0, 0) url("../html/img/admin/yygh.jpg") no-repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    height: 22px;
+    line-height: 22px;
+    margin-right: 5px;
+    padding: 0;
+    width: 80px;
+}
+input.ico_set, input.ico_reset {
+    border: 0 none;
+    color: #349cf6;
+    cursor: pointer;
+    height: 22px;
+    line-height: 22px;
+    padding-left: 20px;
+    width: 72px;
+}
+input.ico_set {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/set.png") no-repeat scroll left center;
+}
+input.ico_reset {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/reset.png") no-repeat scroll left center;
+}
+a.ico_set, a.ico_reset {
+    border: 0 none;
+    color: #349cf6;
+    cursor: pointer;
+    height: 22px;
+    line-height: 22px;
+    padding-left: 20px;
+}
+a.ico_set {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/set.png") no-repeat scroll left center;
+}
+a.ico_reset {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/reset.png") no-repeat scroll left center;
+}
+.ico_img_add, .ico_img_edit, .ico_img_file_edit, .ico_img_del, .ico_img_ecport, .ico_img_import, .ico_img_printer {
+    border: 1px solid #fff;
+    cursor: pointer;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    vertical-align: bottom;
+    width: 20px;
+}
+.ico_img_add:hover, .ico_img_edit:hover, .ico_img_file_edit:hover, .ico_img_del:hover, .ico_img_ecport:hover, .ico_img_import:hover, .ico_img_printer:hover {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.ico_img_add {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/add.png") no-repeat scroll center center;
+}
+.ico_img_edit {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/edit.png") no-repeat scroll center center;
+}
+.ico_img_file_edit {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/file_edit.png") no-repeat scroll center center;
+}
+.ico_img_del {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/del.png") no-repeat scroll center center;
+}
+.ico_img_ecport {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/file_export.png") no-repeat scroll center center;
+}
+.ico_img_import {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/file_import.png") no-repeat scroll center center;
+}
+.ico_img_printer {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/printer.png") no-repeat scroll center center;
+}
+a.btn, a.btn_w95, a.btn_w120 {
+    border: medium none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    width: 68px;
+}
+a.btn {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn.gif") no-repeat scroll 0 0;
+}
+a.btn_w95 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_w95.gif") no-repeat scroll 0 0;
+    width: 95px;
+}
+a.btn_w120 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_w120.gif") no-repeat scroll 0 0;
+    width: 120px;
+}
+a.btn_add, a.btn_adds, a.btn_search, a.btn_searchA, a.btn_sort, a.btn_export, a.btn_pub, a.btn_editor, a.btn_del, a.btn_CheckRecord, a.btn_GenPlan, a.btn_setup, a.btn_statistical {
+    border: medium none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 28px;
+    padding-left: 30px;
+    vertical-align: middle;
+    width: 38px;
+}
+a.btn_add {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_add.gif") no-repeat scroll 0 0;
+}
+a.btn_adds {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_adds.gif") no-repeat scroll 0 0;
+    width: 63px;
+}
+a.btn_search {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_search.gif") no-repeat scroll 0 0;
+}
+a.btn_searchA {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_searchA.gif") no-repeat scroll 0 0;
+    width: 63px;
+}
+a.btn_sort {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_sort.gif") no-repeat scroll 0 0;
+}
+a.btn_export {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_export.gif") no-repeat scroll 0 0;
+}
+a.btn_pub {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_pub.gif") no-repeat scroll 0 0;
+}
+a.btn_editor {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_editor.gif") no-repeat scroll 0 0;
+}
+a.btn_del {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_del.gif") no-repeat scroll 0 0;
+}
+a.btn_CheckRecord {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_CheckRecord.gif") no-repeat scroll 0 0;
+    width: 80px;
+}
+a.btn_GenPlan {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_GenPlan.gif") no-repeat scroll 0 0;
+    width: 63px;
+}
+a.btn_setup {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_setup.gif") no-repeat scroll 0 0;
+}
+a.btn_statistical {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_statistical.gif") no-repeat scroll 0 0;
+    width: 80px;
+}
+a.btn_save, a.btn_return {
+    display: block;
+    line-height: 34px;
+}
+a.btn_save {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_determine_01.gif") no-repeat scroll 0 0;
+    color: #fff;
+    margin-right: 15px;
+}
+a.btn_return {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_cancel_01.gif") no-repeat scroll 0 0;
+    color: #333;
+}
+a.btn_return2 {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_cancel2_01.gif") no-repeat scroll 0 0;
+    color: #333;
+    display: block;
+    line-height: 25px;
+}
+a.btn_save:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_determine_02.gif") no-repeat scroll 0 0;
+}
+a.btn_return:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_cancel_02.gif") no-repeat scroll 0 0;
+}
+a.btn_return2:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/btn_submit_cancel2_02.gif") no-repeat scroll 0 0;
+}
+.datagrid-header td {
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 24px;
+}
+.datagrid-body .datagrid-cell, .datagrid-footer .datagrid-cell {
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+}
+.datagrid-row {
+    height: 31px;
+}
+a.ico_check, a.ico_del, a.ico_view, a.ico_stop, a.ico_tag, a.ico_vote, a.ico_mail, a.ico_key, a.ico_clock, a.ico_editor, a.ico_add, a.ico_tel, a.ico_pub, a.ico_deal, a.ico_notice, a.ico_reply, a.ico_emport, a.ico_nodeal, a.ico_pubopen, a.ico_pubclose, a.ico_copy, a.ico_registration, a.ico_export, a.ico_archive, a.ico_public, a.ico_publicclose, a.ico_associat, a.ico_check:hover, a.ico_del:hover, a.ico_view:hover, a.ico_stop:hover, a.ico_tag:hover, a.ico_vote:hover, a.ico_mail:hover, a.ico_key:hover, a.ico_clock:hover, a.ico_editor:hover, a.ico_add:hover, a.ico_tel:hover, a.ico_pub:hover, a.ico_deal:hover, a.ico_notice:hover, a.ico_reply:hover, a.ico_emport:hover, a.ico_nodeal:hover, a.ico_pubopen:hover, a.ico_pubclose:hover, a.ico_copy:hover, a.ico_registration:hover, a.ico_export:hover, a.ico_sarchive:hover, a.ico_public:hover, a.ico_publicclose:hover, a.ico_associat:hover, a.ico_select, a.ico_collection, a.ico_collectionclose, a.ico_play, a.ico_select:hover, a.ico_collection:hover, a.ico_collectionclose:hover, a.ico_play:hover, a.ico_playclose, a.ico_playclose:hover, a.ico_output, a.ico_output:hover, a.ico_rule, a.ico_rule:hover, a.ico_back, a.ico_back:hover, a.ico_setup, a.ico_setup:hover, a.ico_seeDoctor, a.ico_seeDoctor:hover, a.ico_template, a.ico_template:hover, a.ico_abnormal, a.ico_abnormal:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/admin/ico_btns.png") no-repeat scroll 0 0;
+    display: block;
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    margin-top: 5px;
+    width: 22px;
+}
+a.ico_doc, a.ico_doc:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/user_medical.png") no-repeat scroll 0 0;
+    display: block;
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    margin-left: 3px;
+    margin-top: 5px;
+    width: 22px;
+}
+a.ico_doc:hover {
+    background: rgba(0, 0, 0, 0) url("../html/img/user_medical_hover.png") no-repeat scroll 0 0;
+}
+a.ico_check {
+    background-position: -22px 0;
+}
+a.ico_del {
+    background-position: -22px -30px;
+}
+a.ico_view {
+    background-position: -22px -60px;
+}
+a.ico_stop {
+    background-position: -22px -90px;
+}
+a.ico_tag {
+    background-position: -22px -120px;
+}
+a.ico_vote {
+    background-position: -22px -150px;
+}
+a.ico_mail {
+    background-position: -22px -180px;
+}
+a.ico_key {
+    background-position: -22px -210px;
+}
+a.ico_clock {
+    background-position: -22px -240px;
+}
+a.ico_editor {
+    background-position: -22px -270px;
+}
+a.ico_add {
+    background-position: -22px -300px;
+}
+a.ico_tel {
+    background-position: -22px -330px;
+}
+a.ico_pub {
+    background-position: -22px -360px;
+}
+a.ico_deal {
+    background-position: -22px -390px;
+}
+a.ico_notice {
+    background-position: -22px -420px;
+}
+a.ico_reply {
+    background-position: -22px -450px;
+}
+a.ico_nodeal {
+    background-position: -22px -480px;
+}
+a.ico_pubopen {
+    background-position: -22px -510px;
+}
+a.ico_pubclose {
+    background-position: -22px -540px;
+}
+a.ico_copy {
+    background-position: -22px -570px;
+}
+a.ico_registration {
+    background-position: -22px -600px;
+}
+a.ico_export {
+    background-position: -22px -630px;
+}
+a.ico_archive {
+    background-position: -22px -660px;
+}
+a.ico_public {
+    background-position: -22px -690px;
+}
+a.ico_publicclose {
+    background-position: -22px -720px;
+}
+a.ico_associat {
+    background-position: -22px -750px;
+}
+a.ico_select {
+    background-position: -22px -780px;
+}
+a.ico_collection {
+    background-position: -22px -810px;
+}
+a.ico_collectionclose {
+    background-position: -22px -840px;
+}
+a.ico_play {
+    background-position: -22px -870px;
+}
+a.ico_playclose {
+    background-position: -22px -900px;
+}
+a.ico_check:hover {
+    background-position: 0 0;
+}
+a.ico_del:hover {
+    background-position: 0 -30px;
+}
+a.ico_view:hover {
+    background-position: 0 -60px;
+}
+a.ico_stop:hover {
+    background-position: 0 -90px;
+}
+a.ico_tag:hover {
+    background-position: 0 -120px;
+}
+a.ico_vote:hover {
+    background-position: 0 -150px;
+}
+a.ico_mail:hover {
+    background-position: 0 -180px;
+}
+a.ico_key:hover {
+    background-position: 0 -210px;
+}
+a.ico_clock:hover {
+    background-position: 0 -240px;
+}
+a.ico_editor:hover {
+    background-position: 0 -270px;
+}
+a.ico_add:hover {
+    background-position: 0 -300px;
+}
+a.ico_tel:hover {
+    background-position: 0 -330px;
+}
+a.ico_pub:hover {
+    background-position: 0 -360px;
+}
+a.ico_deal:hover {
+    background-position: 0 -390px;
+}
+a.ico_notice:hover {
+    background-position: 0 -420px;
+}
+a.ico_reply:hover {
+    background-position: 0 -450px;
+}
+a.ico_nodeal:hover {
+    background-position: 0 -480px;
+}
+a.ico_pubopen:hover {
+    background-position: 0 -510px;
+}
+a.ico_pubclose:hover {
+    background-position: 0 -540px;
+}
+a.ico_copy:hover {
+    background-position: 0 -570px;
+}
+a.ico_registration:hover {
+    background-position: 0 -600px;
+}
+a.ico_export:hover {
+    background-position: 0 -630px;
+}
+a.ico_archive:hover {
+    background-position: 0 -660px;
+}
+a.ico_public:hover {
+    background-position: 0 -690px;
+}
+a.ico_publicclose:hover {
+    background-position: 0 -720px;
+}
+a.ico_associat:hover {
+    background-position: 0 -750px;
+}
+a.ico_select:hover {
+    background-position: 0 -780px;
+}
+a.ico_collection:hover {
+    background-position: 0 -810px;
+}
+a.ico_collectionclose:hover {
+    background-position: 0 -840px;
+}
+a.ico_play:hover {
+    background-position: 0 -870px;
+}
+a.ico_playclose:hover {
+    background-position: 0 -900px;
+}
+a.ico_output {
+    background-position: -22px -930px;
+}
+a.ico_output:hover {
+    background-position: 0 -930px;
+}
+a.ico_rule:hover {
+    background-position: 0 -960px;
+}
+a.ico_rule {
+    background-position: -22px -960px;
+}
+a.ico_back {
+    background-position: -22px -990px;
+}
+a.ico_back:hover {
+    background-position: 0 -990px;
+}
+a.ico_setup {
+    background-position: -22px -1020px;
+}
+a.ico_setup:hover {
+    background-position: 0 -1020px;
+}
+a.ico_seeDoctor {
+    background-position: -22px -1050px;
+}
+a.ico_seeDoctor:hover {
+    background-position: 0 -1050px;
+}
+a.ico_template {
+    background-position: -22px -1080px;
+}
+a.ico_template:hover {
+    background-position: 0 -1080px;
+}
+a.ico_abnormal {
+    background-position: -22px -1110px;
+}
+a.ico_abnormal:hover {
+    background-position: 0 -1110px;
+}
+a.sms, a.yygh, a.btn_editor, a.btn_del, a.change_password {
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+a.sms, a.yygh, a.btn_editor, a.btn_del, a.change_password, .qq, .wx, .tel, .email {
+    background: rgba(0, 0, 0, 0) url("../html/img/admin/icon_1.gif") no-repeat scroll 0 0;
+    height: 20px;
+    width: 20px;
+}
+.img_save, .img_disable, .img_search, .img_add {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: #666;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    margin-right: 15px;
+    padding: 3px 3px 3px 21px;
+}
+.img_save:hover, .img_disable:hover, .img_search:hover, .img_add:hover {
+    border: 1px solid #ccc;
+    color: #333;
+}
+.img_save {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/save_alt.png") no-repeat scroll 3px 3px;
+}
+.img_disable {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/edit.png") no-repeat scroll 3px 3px;
+}
+.img_search {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/search.png") no-repeat scroll 3px 3px;
+}
+.img_add {
+    background: rgba(0, 0, 0, 0) url("../html/img/home/add.png") no-repeat scroll 3px 3px;
+}

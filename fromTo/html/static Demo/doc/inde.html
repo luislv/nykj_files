@@ -1,0 +1,203 @@
+
+<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	   	<title>医生列表</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	    
+
+<link rel="stylesheet" type="text/css" href="./css/easyui.css">
+<link rel="stylesheet" type="text/css" href="./css/comm.css">
+<link rel="stylesheet" type="text/css" href="./css/css.css">
+<link rel="stylesheet" type="text/css" href="./css/icon.css">
+<link rel="stylesheet" type="text/css" href="./css/select2.css">
+<link rel="stylesheet" type="text/css" href="./css/WdatePicker.css">
+<link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.css" >
+<script type="text/javascript">
+var webroot='/project-dg';
+var user = {'unitId':'14d8072b-5fe6-4ae8-ae1a-330bec01366e',userId:'999900001211',username:'yyadmin'};
+var voiceFtpDir = 'csm_voice';
+var voiceHttpUrl = 'http://192.168.1.200:8000/csm_voice';
+var voiceUploadHttpUrl = "http://119.147.23.84:13080/csmfile/file/json/upload.shtml";
+var imageHttpUrl = "/uploadFiles/resources";
+</script>
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/WdatePicker.js"></script>
+<script type="text/javascript" src="./js/jquery.easyui.all.js"></script>
+<script type="text/javascript" src="./js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="./js/select2.js"></script>
+<script type="text/javascript" src="./js/select2_locale_zh-CN.js"></script>
+<script type="text/javascript" src="./js/csm.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/common.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/auto.tip.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/diallel.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="./js/homepage.js"></script>
+<script type="text/javascript" src="./js/hp-template.js"></script>
+<script type="text/javascript" src="./js/listValueChange.js"></script>
+<script type="text/javascript" src="./js/sequenceNoSet.js"></script>
+	</head>
+	<body>
+
+		<div id="hDocPanel"></div>
+        <input type="hidden" id="uid" name="userid" value=""/>
+		<div id="tb">
+			<div class='global_tit'>
+  <div id='pagetitle'class='title'>人员基本信息</div>
+  <div class='r_btn'>
+	   <a href='javascript:history.back(-1);' plain='true' title='返回'
+      class='easyui-linkbutton' data-options="iconCls:'icon-back'"></a>
+  </div>
+</div>
+			<div class="m_search">							   
+			    <ul id='hDepName' name='depName' class='easyui-combotree' data-options="url:'/project-dg/hDep/f_json/deptree.shtml?role=1&selectMainDep=0&headerId=&headerValue=任职科室',method:'GET',lines:true," style='width:200px;'></ul>
+<script type='text/javascript'>
+$(document).ready(function() {
+	$('#hDepName').combotree({
+ 	loader : function(param,success,error) {
+			return false;
+		}
+	});
+});
+</script>
+ 
+			   	<select id="hDocJob" name="docJob" class="easyui-validatebox" ><option value="">医生职务</option><option value="1010">党委书记</option><option value="1021">党委副书记</option><option value="1022">党总支部书记</option><option value="1023">党总支部副书记</option><option value="1030">党支部书记</option><option value="1041">党支部副书记</option><option value="2010">院长</option><option value="2021">副院长</option><option value="2030">科长</option><option value="2041">副科长</option><option value="2050">主任</option><option value="2061">副主任</option><option value="2070">股长</option><option value="2081">副股长</option><option value="2090">护理部主任</option><option value="2101">护理部副主任</option><option value="2110">校长</option><option value="2121">副校长</option><option value="2130">所长</option><option value="2141">副所长</option><option value="2150">站长</option><option value="2161">副站长</option><option value="3010">科主任</option><option value="3021">科副主任</option><option value="3030">门诊部主任</option><option value="3041">门诊部副主任</option><option value="3050">护士长</option><option value="3061">副护士长</option><option value="4010">名誉院长</option><option value="5008">教授</option><option value="5009">副教授</option><option value="5010">高级讲师</option><option value="5011">讲师</option><option value="5012">助理讲师</option><option value="5020">高级实验员</option><option value="5021">实验师</option><option value="5022">助理实验师</option><option value="9999">其他</option></select>
+			   	<select id="hDocTitle" name="docTitle" class="easyui-validatebox" ><option value="">医生职称</option><option value="1-1">医士</option><option value="1-2">医师</option><option value="1-3">主治医师</option><option value="1-4">主管医师</option><option value="1-5">副主任医师</option><option value="1-6">主任医师</option><option value="1-7">见习医师</option><option value="3-1">护士</option><option value="3-2">护师</option><option value="3-3">主管护师</option><option value="3-4">副主任护师</option><option value="3-5">主任护师</option><option value="3-6">未评定</option><option value="3-7">其它</option><option value="3-8">见习护士</option><option value="5-10">助理</option><option value="5-11">药士</option><option value="5-12">药师</option><option value="5-13">主治药师</option><option value="5-14">主管药师</option><option value="5-15">副主任药师</option><option value="5-16">主任药师</option><option value="5-21">技士</option><option value="5-22">技师</option><option value="5-23">主治技师</option><option value="5-24">主管技师</option><option value="5-25">副主任技师</option><option value="5-26">主任技师</option><option value="6">暂无</option></select>		     
+			    <div style="margin-top:2px;padding:2px 0 2px 1px">
+		        
+		        <select id="hDocType" name="docType" class="easyui-validatebox" ><option value="">人员类别</option><option value="10">已注册医师</option><option value="11">未注册医师</option><option value="20">已注册护士</option><option value="21">未注册护士</option><option value="30">已取得技术资格证书医技人员</option><option value="31">未取得技术资格证书医技人员</option><option value="40">行政后勤人员</option><option value="50">乡村医生</option></select>
+			   	
+			    <select id="hDocSex" name="docSex" class="easyui-validatebox" ><option value="">性别</option><option value="1">男</option><option value="2">女</option><option value="9">不详</option></select>
+			    <select id="practiceState" name="practiceState" class="easyui-validatebox" ><option value="">执业状态</option><option value="09">未知</option><option value="00">正常</option><option value="01">已办理注册</option><option value="02">已办理变更</option><option value="03">已办理校验</option><option value="04">已办理注销诊疗科目</option><option value="05">已办理机构移交</option><option value="06">已办理更换许可证</option><option value="07">已办理停业</option></select>              			    
+			    
+			   	<input type="text" class="auto-tip" style="width:195px" data-tip="姓名/手机号/工号" id="searchString" name="searchString" class="easyui-numberbox" validType="length[0,40]"/>	    			    			    			    
+			    <input type="button" class="btn_search"  onclick="hDoc.query()" iconCls="icon-search" plain="true" value="查询"/>
+			    </div>			   			    			   			   			    	    			   
+			</div>
+		</div>	 
+		
+	    <script type="text/javascript">	  	    
+	    
+            var start =0;
+			$(document).ready(function () {						
+				$('#hDocSex').css('width',"110px");
+				//$('#hDocType').css('width',"128px");
+				//var s=1,o=1;
+				$('#'+hDoc.panel).datagrid({
+					fit:true,
+	                nowrap: true,
+	                autoRowHeight: false,
+	                striped: true,
+	                fitColumns: true,
+	                collapsible:true,  
+	                remoteSort: false,
+	                singleSelect: true,
+	                columns:[
+	                	[	
+		                    {field:'docName',title:'姓名',width:60},
+		                    {field:'docSex',title:'性别',width:30},
+		                    {field:'depName',title:'所在科室'},		                    
+		                    {field:'docJob',title:'职务',width:65},
+		                    {field:'docTitle',title:'职称',width:65},
+		                    {field:'docType',title:'人员类别',width:50},		                    		                   
+		                    {field:'practiceState',title:'执业状态',width:65},
+	            			{field:'_operate',title:'操作',
+								formatter:function(value,r){
+										return ['<a href="javascript:hDoc.show(&apos;',r.docId,'&apos;,&apos;'+ r.docName +'&apos;,&apos;'+ r.hosId +'&apos;);" class="ico_view" title="任职科室信息"></a>'].join('');													
+								}
+							},
+							{field:'sort',title:'排序',
+		                    	formatter:function(value,r,index){		                    		
+									return [
+				                    		'<span class="spinner" style="width: 48px;margin-top:5px">',
+				                    		'<input id="sort_edit'+index+'" class="easyui-numberspinner spinner-text" onkeydown="sequenceNo.onlyNum('+index+');" onchange="javascript:sequenceNo.setOrder(&quot;',r.docId,'&quot;,',index,',&quot;hDocPanel&quot;)" value="'+r.orderBy+'" style="width: 30px;" >',
+				                    		'<input type="hidden" id="pre_val'+index+'" value="'+r.orderBy+'"><span class="spinner-arrow">',
+				                    		'<span id="saup'+index+'" onmousemove="sequenceNo.mouseover(&quot;saup&quot;,',index,')" onmouseout="sequenceNo.mouseout(&quot;saup&quot;,',index,')" class="spinner-arrow-up" onclick="javascript:sequenceNo.setValue(',index,',&quot;increase&quot;,&quot;',r.docId,'&quot;,&quot;hDocPanel&quot;)"></span>',
+				                    		'<span id="sadown'+index+'" onmousemove="sequenceNo.mouseover(&quot;sadown&quot;,',index,')" onmouseout="sequenceNo.mouseout(&quot;sadown&quot;,',index,')" class="spinner-arrow-down" onclick="javascript:sequenceNo.setValue(',index,',&quot;decrease&quot;,&quot;',r.docId,'&quot;,&quot;hDocPanel&quot;)"></span></span></span>'
+											].join('');
+		                    	}
+		                    }
+		                ]
+	                ],	
+	                pagination:true,
+	                rownumbers:true,
+					pageNumber:1,
+					pageSize:10,
+	                toolbar:'#tb',
+	                onDblClickRow: function(){
+	                	var row = $('#'+hDoc.panel).datagrid("getSelected");
+	                	hDoc.edit(row.docId,row.docName);
+	                }
+	            });				
+					
+var datas=[{"docJob":"副主任","phone":"0755-98765432","docType":"已注册医师","orderBy":11,"docNo":"","depName":"骨外科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009126","docSex":"男","docMajor":"","isDelete":"0","docTitle":"副主任医师","icDocId":"74975","docImages":"","createDate":1431063497000,"qq":"","idMainDep":"0","docName":"刘世桢","docEdu":"无学历","detailDesc":"   ","updateDate":1437706355000,"isEnabled":"0","hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"78c18dc3-ee63-48be-8b9b-f6349a663536","updateUser":"yyadmin","mobile":"13689981034"},{"docJob":"科副主任","phone":"","docType":"已注册医师","orderBy":5,"docNo":"","depName":"骨外科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009126","docSex":"男","docMajor":"","isDelete":"0","docTitle":"主管医师","icDocId":"74789","docImages":"90960","createDate":1431063496000,"qq":"","idMainDep":"0","docName":"庞广兴","docEdu":"无学历","detailDesc":"&lt;p&gt;&lt;span style=\"color: rgb&#40;51, 51, 51&#41;; font-family: Tahoma, Helvetica, Arial, 閿熸枻鎷烽敓鏂ゆ嫹, &#39;Microsoft YaHei&#39;, sans-serif; font-size: 12px; line-height: 18px; background-color: rgb&#40;238, 241, 246&#41;;\"&gt;庞广兴&lt;/span&gt;&lt;/p&gt;","updateDate":1437549618000,"isEnabled":"0","hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"0ca7c6a9-cb76-47db-8812-28e1c8d078e2","updateUser":"yyadmin","mobile":""},{"docJob":"科主任","phone":"","docType":"已注册医师","orderBy":2,"docNo":"","depName":"骨外科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009126","docSex":"男","isDelete":"0","docTitle":"主任医师","icDocId":"74985","docImages":"","createDate":1431063497000,"qq":"","idMainDep":"0","docName":"曾淳","docEdu":"无学历","isEnabled":"0","updateDate":1437706347000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"d9eb5c82-9d9c-457d-902d-e1c80a3c92b9","mobile":"","updateUser":"yyadmin"},{"docJob":"副主任","phone":"","docType":"已注册医师","orderBy":1,"docNo":"","depName":"骨外科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009126","docSex":"男","isDelete":"0","docTitle":"副主任医师","icDocId":"75059","docImages":"","createDate":1431063497000,"qq":"","idMainDep":"0","docName":"梁润林","docEdu":"无学历","isEnabled":"0","updateDate":1437706345000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"cd2ab1e3-04b9-4777-8aba-b92285e8daf4","mobile":"","updateUser":"yyadmin"},{"docJob":"副主任","phone":"0769-28636300","docType":"已注册医师","orderBy":0,"docNo":"","depName":"骨外科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009126","docSex":"男","isDelete":"0","docTitle":"副主任医师","icDocId":"75102","docImages":"","createDate":1431063498000,"qq":"","idMainDep":"0","docName":"黎松波","docEdu":"无学历","isEnabled":"0","updateDate":1432260735000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"2ff8bca2-7bbd-4140-afee-ae0e35d58336","mobile":"","updateUser":"yyadmin"},{"docJob":"副主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"风湿科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009103","docSex":"女","isDelete":"0","docTitle":"副主任医师","icDocId":"75185","docImages":"","createDate":1431063498000,"qq":"","idMainDep":"0","docName":"区冰玲","docEdu":"无学历","isEnabled":"0","updateDate":1432260866000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"8eaa66e0-5413-48a3-a168-63707d0673fc","mobile":"","updateUser":"yyadmin"},{"docJob":"主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"风湿科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009103","docSex":"女","isDelete":"0","docTitle":"主治医师","icDocId":"75268","docImages":"","createDate":1431063499000,"qq":"","idMainDep":"0","docName":"吴恒莲","docEdu":"无学历","isEnabled":"0","updateDate":1432260852000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"fe436648-5c69-4dd4-b26e-781a8a89120b","mobile":"","updateUser":"yyadmin"},{"docJob":"副主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"风湿科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009103","docSex":"男","isDelete":"0","docTitle":"副主任医师","icDocId":"75216","docImages":"","createDate":1431063498000,"qq":"","idMainDep":"0","docName":"吴记平","docEdu":"无学历","isEnabled":"0","updateDate":1432260915000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"bedbbd5f-015e-4f94-9d7d-789e73bacbfa","mobile":"","updateUser":"yyadmin"},{"docJob":"其他","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"风湿科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009103","docSex":"女","isDelete":"0","docTitle":"主管医师","icDocId":"75666","docImages":"","createDate":1431063501000,"qq":"","idMainDep":"0","docName":"杨彩红","docEdu":"无学历","isEnabled":"0","updateDate":1432260929000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"d192f6f0-30f1-4e8e-bf2c-92ca51c75991","mobile":"","updateUser":"yyadmin"},{"docJob":"主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"血液内科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009119","docSex":"女","isDelete":"0","docTitle":"主治医师","icDocId":"75015","docImages":"","createDate":1431063497000,"qq":"","idMainDep":"0","docName":"姜义荣","docEdu":"无学历","isEnabled":"0","updateDate":1432260985000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"b42d7e53-dcf3-4e59-a53e-6c45c16b14bf","mobile":"","updateUser":"yyadmin"},{"docJob":"副主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"血液内科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009119","docSex":"女","isDelete":"0","docTitle":"主任医师","icDocId":"75194","docImages":"","createDate":1431063498000,"qq":"","idMainDep":"0","docName":"祁妙华","docEdu":"无学历","isEnabled":"0","updateDate":1432261070000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"cd5b9257-91e3-4c28-a0b2-ee8e55d67d16","mobile":"","updateUser":"yyadmin"},{"docJob":"副主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"血液内科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009119","docSex":"男","isDelete":"0","docTitle":"副主任医师","icDocId":"74987","docImages":"","createDate":1431063497000,"qq":"","idMainDep":"0","docName":"赖应昌","docEdu":"无学历","isEnabled":"0","updateDate":1432261038000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"68385d14-2ca5-4ec1-976c-e75baef1cc5a","mobile":"","updateUser":"yyadmin"},{"docJob":"其他","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"肿瘤内科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009116","docSex":"男","isDelete":"0","docTitle":"主管医师","icDocId":"75567","docImages":"","createDate":1431063500000,"qq":"","idMainDep":"0","docName":"何宇","docEdu":"无学历","isEnabled":"0","updateDate":1432257554000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"49375dbf-2b98-4493-9be3-391338302f32","mobile":"","updateUser":"yyadmin"},{"docJob":"科副主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"肿瘤内科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009116","docSex":"男","isDelete":"0","docTitle":"主管医师","icDocId":"75463","docImages":"","createDate":1431063500000,"qq":"","idMainDep":"0","docName":"刘淳","docEdu":"无学历","isEnabled":"0","updateDate":1432257390000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"9abe0521-9571-4edd-8b9d-54b9ed73cf99","mobile":"","updateUser":"yyadmin"},{"docJob":"科副主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"肿瘤内科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009116","docSex":"男","isDelete":"0","docTitle":"主管医师","icDocId":"75445","docImages":"","createDate":1431063500000,"qq":"","idMainDep":"0","docName":"姚满田","docEdu":"无学历","isEnabled":"0","updateDate":1432257246000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"61ee8dcd-a850-4803-9b47-74729e8fce71","mobile":"","updateUser":"yyadmin"},{"docJob":"科副主任","phone":"","docType":"已注册医师","orderBy":0,"docNo":"","depName":"肿瘤内科","hosId":"14d8072b-5fe6-4ae8-ae1a-330bec01366e","depId":"c30bf445-bc83-44c5-81ff-299009009116","docSex":"男","isDelete":"0","docTitle":"主管医师","icDocId":"74834","docImages":"","createDate":1431063496000,"qq":"","idMainDep":"0","docName":"廖景升","docEdu":"无学历","isEnabled":"0","updateDate":1432257270000,"hosName":"东莞市人民医院","englishName":"","beforeName":"","createUser":"yyadmin","practiceState":"正常","email":"","wechat":"","docId":"c5bdd81e-0a8b-467f-8633-a7b0eb014704","mobile":"18688663539","updateUser":"yyadmin"}];
+			 $('#hDocPanel').datagrid('loadData',datas);						
+			});										
+			
+			var hDoc = {
+				panel : 'hDocPanel',
+				//查询
+				query : function() {
+					autoTip.clear();
+					var depid=$(".combo-value").val(),job=$('#hDocJob').val(),title=$('#hDocTitle').val();
+					if(depid!=null&&depid!=""){
+						$("#pagetitle").text("【"+$(".tree-node-selected .tree-title").text()+"】"+"人员基本信息");
+					}else{
+						$("#pagetitle").text("人员基本信息");
+					}							
+			        $('#hDocPanel').datagrid('loadData',datas);			        			        			    	
+			    },
+			    //编辑
+			    edit : function(id, docName) {				    	
+			        parent.menuInfo.clickMenu(docName + ' - 医生基本信息','/hDoc/f_view/toedit.shtml?id=' + id,true);		        
+			    },
+			    
+			    show : function(docId,docName,hosId){
+			    	parent.menuInfo.clickMenu(docName,'/hSchWork/f_view/index.shtml?docId=' + docId+"&docName="+docName+"&hosId="+hosId,true);
+			    },			    
+			    
+			    //回收站
+			    recycle : function() {
+			    	 parent.menuInfo.clickMenu('医生回收站','/hDoc/f_view/recycleIndex.shtml',true);
+			    },
+			    
+			    add : function(){
+			    	parent.menuInfo.clickMenu('新增医生','/hDoc/f_view/toedit.shtml',true);
+			    },
+			    
+			    //审核列表APPROVE
+				approveList: function(){
+					  parent.menuInfo.clickMenu('医生审核列表','/hDocApprove/f_view/index.shtml?tableName=H_DOC_APPROVE',true);
+				},
+			    
+			    //移除
+			    del : function(id, docName) {
+			    	var curRow = $('#'+hDoc.panel).datagrid('getSelected');
+			        if (curRow) {
+			            $.messager.confirm('提示', '确认移除“'+ docName +'”？', function (r) {
+			                if (r) {
+			                    $.ajax({
+			                        url: '/project-dg/hDoc/f_json/delete.shtml',
+			                        type: 'post',
+			                        data: { 'id': curRow.docId },
+			                        dataType: 'json',
+			                        success : function(data) {
+										if(data.result == "success") {								    		
+			                                Comm.prompt('移除成功!');
+			                                var tab_title = parent.$('.tabs-selected .tabs-title').text();
+			        		    			parent.menuInfo.clickMenu('医生审核列表','/hDocApprove/f_view/index.shtml?tableName=H_DOC_APPROVE',true);
+			        		    			parent.menuInfo.closeMenu(tab_title);
+								    	}
+								    	else Comm.prompt('移除失败!'); 
+									}
+			                    });
+			                }
+			            });
+			        }
+			        else $.messager.alert('提示', '请选择需要移除的数据.');
+			    }
+			};
+																					
+		</script>
+	</body>
+</html>

@@ -1,0 +1,165 @@
+
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>东莞市医疗机构排班管理系统</title>
+
+<link rel="stylesheet" type="text/css" href="js/easyui-themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="js/easyui-themes/icon.css">
+<link rel="stylesheet" type="text/css" href="js/easyui-themes/color.css">
+<link rel="stylesheet" type="text/css" href="/img/css.css?version=201507231655">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+
+<style>
+.title {
+	background: -ms-linear-gradient(top, #40E0D0, #fff);
+	background: -moz-linear-gradient(top, #40E0D0, #fff);
+	background: -webkit-linear-gradient(top, #40E0D0, #fff);
+}
+</style>
+</head>
+<body>
+	<div class="pwd_wrap">
+		
+
+<div class="hd_nav ">
+    <div class="center w960 clearfix">
+      <div class="fl common-logo" style="padding-top:5px;">  <img src="img/u14.png" alt="东莞市医疗机构排班管理系统" width="100px" height="100px" class="belated" />  </div>
+      <div class="fc common-nav" id="h_nav">
+      	
+        <h5 class="nav-title nav-chosen" id="h_customer" style="font-size:36px;color:#2e93c7;font-weight: bold;">东莞市医疗机构排班管理系统</h5>
+      </div>
+      <script type="text/javascript">
+      $(function(){
+    	  $("#h_nav h5").click(function(){
+    		  $("#h_nav h5").removeClass("nav-chosen");
+    		  $(this).addClass("nav-chosen");
+    	  });
+      });
+      </script>
+    </div>
+  </div>
+		<div class="pwd_main padd_0 login_bg2"
+			style="width: 100%; position: absolute;">
+			<div class="login_banner w960 center">
+				<div class="login_box">
+					<div class="hd">系统登录</div>
+					<div class="field username-field">
+						<label for="TPL_username_1" class="iconfont"></label> <input
+							type="text" class="login-text J_UserName" id="username"
+							name="username" value="" maxlength="32" tabindex="1"
+							placeholder="请输入登录帐号"> <span class="nickx"
+							href="javascript:void(0)" style="display: block;"
+							onclick="$('#username').val('')"></span>
+					</div>
+					<div class="field pwd-field">
+						<label class="iconfont"></label> <input type="password"
+							class="login-text" id="password" name="password" value=""
+							maxlength="1000" tabindex="2" placeholder="请输入登录密码">
+					</div>
+					<div class="login_error">
+						<span class="red" style="display: none;" id="msgPanel">账号或密码错误，请重新输入</span>
+					</div>
+					<div class="auto" style="">
+						<span class="forget-pw"> <a
+							href="/project-dg/user/view/chgpwd.shtml">修改密码</a>
+						</span>
+					</div>
+					<div class="auto" style="display: none">
+						<span class="auto-login"> <!-- <input type="checkbox"><label>下次自动登录</label> -->
+						</span> <span class="forget-pw"> <a
+							href="/project-dg/user/view/findPwd.shtml" target="_blank">忘记密码</a>
+						</span>
+					</div>
+					<div class="submit">
+						<button type="submit" class="J_Submit" tabindex="5" id="loginBtn">登 录</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+<div data-options="region:'south',border:false" id="footer" style="position:absolute;bottom:0;width:100%;">
+
+    <div align="center" style="font-size:20px;">
+    <!--div align="right" style="padding:30px 0 0 0"-->
+	  <div class="tell" style="color:#36648B">东莞市卫生和计划生育局</div>	  
+	</div>
+	<div align="right" style="font-size:15px;">
+	  <div class="unitname">技术支持：深圳市宁远科技有限公司</div>	
+	</div>
+	
+	<!--div class="footer_logo" style="height:37px;margin:17px 0 0 0"></div-->
+	<div class="footer_b_logo"></div>
+</div>
+	
+	<script type="text/javascript">
+		$(function() {
+			if (window.parent != window) {
+				window.parent.location.href = window.location.href;
+			}
+			$('#username').focus();
+			$('#password').keydown(function(e) {
+				var key = e.which;
+				if (key == 13)
+					$('#loginBtn').click();
+			});
+			$('#loginBtn').click(function() {
+				var _btn = $('#loginBtn');
+				_btn.prop('disabled', true);
+				_btn.html('登 录 中 ...');
+				var _msgPanel = $('#msgPanel').css('display', 'block').empty();
+				var _username = $('#username').val();
+				var _password = $('#password').val();
+
+				$.ajax({
+					url : '/project-dg/user/json/login.shtml',
+					data : {
+						username : _username,
+						password : _password
+					},
+					dataType : 'json',
+					type : 'post',
+					cache : false,
+					error : function() {
+						alert('登录失败');
+						_btn.removeProp('disabled');
+						_btn.html('登　录');
+					},
+					success : function(json) {
+						_btn.removeProp('disabled');
+						_btn.html('登　录');
+						if (json.result === 'success') {
+							if (json.data.dataScope < 9) {
+								_msgPanel.append('您不是运营人员！');
+							} else {
+								location = '/project-dg/user/f_view/main_admin.shtml';		 
+							}
+						} else if (json.result === 'error') {
+							_msgPanel.append('登录失败');
+						} else {
+							_msgPanel.append(json.msg);
+						}
+					}
+				});
+			});
+		});
+		
+		//登陆框居中
+		function changPos() {
+			var winHeight = $(window).height();
+			var boxHeight = $(".pwd_main").height();
+			var boxTop = (winHeight - boxHeight) / 2;
+			$(".pwd_main").css("top", boxTop);
+		};
+		changPos()
+		$(window).resize(function() {
+			changPos();
+		});
+	</script>
+</body>
+</html>

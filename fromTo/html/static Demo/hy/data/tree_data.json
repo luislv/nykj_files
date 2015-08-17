@@ -1,0 +1,61 @@
+[{
+	"id":1,
+	"text":"内科",
+	"children":[{
+      "text":"心血管内科",
+      "checked":true
+    },{
+      "text":"消化内科"
+    },{
+      "text":"神经内科",
+      "checked":true
+    },{
+      "text":"呼吸内科",
+      "checked":true
+    }]
+
+},
+  {
+    "id": 2,
+    "text": "妇产科",
+    "children": [
+      {
+        "id": 21,
+        "text": "妇科",
+        "state": "open",
+        "children": [
+          {
+            "text": "计划生育专科",
+            "checked": true
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "text": "产科",
+        "state": "open",
+        "children": [
+          {
+            "text": "分娩室",
+            "checked": true
+          }
+        ]
+      }
+    ]
+  },{
+  "id":1,
+  "text":"儿科",
+  "children":[{
+    "text":"新生儿科",
+    "checked":true
+  },{
+    "text":"小儿呼吸科"
+  },{
+    "text":"小儿消化科",
+    "checked":true
+  },{
+    "text":"小儿营养保健科",
+    "checked":true
+  }]
+
+}]

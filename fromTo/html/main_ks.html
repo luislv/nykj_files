@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>东莞市医疗机构排班管理系统v1.1</title>
+<link rel="stylesheet" type="text/css" href="js/easyui-themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="js/easyui-themes/icon.css">
+<link rel="stylesheet" type="text/css" href="js/easyui-themes/color.css">
+<link rel="stylesheet" type="text/css" href="img/css.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/proindex.js?c=main"></script>
+<style type="text/css">
+.page-header .tabs li{
+	margin: 0 3px -5px 0;
+}
+.page-header .tabs{
+	padding: 3px 0 0 5px;
+}
+</style>
+</head>
+
+<body class="easyui-layout">
+<div style="display:none">
+	  <div name="pop_menu_444" class="menu-treeview easyui-menu" style="width:150px;">
+            <a href="/hHos/f_view/toedit.shtml" target="_iframe">医院基本信息1</a>
+            <a href="/hHos/f_view/toedit.shtml" target="_iframe">科室基本信息1</a>
+            <a href="/hHos/f_view/toedit.shtml" target="_iframe">医务人员信息1</a>
+            <div class="menu-sep"></div>
+            <a href="/hSchWorkTime/f_view/index.shtml" target="_iframe">班次管理</a>
+            <a href="javascript:;" target="_iframe">排班管理1</a>
+            <a href="javascript:;" target="_iframe">排班审核1</a>
+            <a href="javascript:;" target="_iframe">排班查看1</a>
+      </div>
+</div>
+<div data-options="region:'north'" class="topnav">
+    <div  style="float:left;">
+    <a href="javascript:void(0)">
+    <img class="belated" width="65px" height="65px" title="系统首页" style="padding:3px 0 0 3px;" alt="东莞市医疗机构排班管理系统" src="img/logo.png"/>
+    </a>
+    </div>
+    <div id="title" style="float: left;padding:15px 0 0 5px;font-size:30px;line-height:30px;color:#ffffff;font-weight:normal;font-family:微软雅黑;">
+    东莞市医疗机构排班管理系统
+    <span id="subtitle" style=" float: right;font-size:26px;line-height:26px;padding-left:10px;padding-top:20px;"> — 东莞市厚街医院 </span>
+    </div>
+        <div class="nav_menu" style="float: right;">
+        <a id="menu_111"><img src="img/admin/menu_ico_11.gif">机构信息</a>
+        <a id="menu_222"><img src="img/admin/menu_ico_12.gif">排班管理</a>
+        <a id="menu_333"><img src="img/admin/menu_ico_10.gif">预约管理</a>
+        <a id="menu_444"><img src="img/admin/menu_ico_set.gif">系统设置</a>
+        </div>
+        <div class="nav_footer" style="display:none;">
+        <a>设 置</a>
+        </div>
+        
+        <!--<div  class="page-header" style="clear:both;">-->
+               <!--<ul class="tabs" name='tabs_menu_000'>-->
+                        <!--<li class="tabs-first tabs-selected" style="margin-right:10px;">-->
+                        <!--<a class="tabs-inner" target="_iframe" href="welcome.html">-->
+                        <!--系统管理首页</a>-->
+                        <!--</li>-->
+                        <!---->
+                        <!--<li name='tabs_menu_111' style="display:none;">-->
+                        <!--<a class="tabs-inner" target="_iframe" href="http://10.10.4.56:8080/hHos/f_view/toedit.shtml">-->
+                        <!--医院信息</a>-->
+                        <!--</li>-->
+                        <!--<li name='tabs_menu_111' style="display:none;">-->
+                        <!--<a class="tabs-inner" target="_iframe" href="http://10.10.4.56:8080/hHos/f_view/toedit.shtml">-->
+                        <!--科室信息</a>-->
+                        <!--</li>-->
+                        <!--<li  name='tabs_menu_111' class="tabs-last" style="display:none;">-->
+                        <!--<a class="tabs-inner" target="_iframe" href="javascript:void(0)">人员信息</a>-->
+                        <!--</li> -->
+                        <!---->
+                        <!--<li name='tabs_menu_222' style="display:none;">-->
+                        <!--<a class="tabs-inner" target="_iframe" href="pb/bc.html">-->
+                        <!--班次管理</a>-->
+                        <!--</li>-->
+                        <!--<li name='tabs_menu_222' style="display:none;">-->
+                        <!--<a class="tabs-inner" target="_iframe" href="pb/pb.html">-->
+                        <!--排班管理</a>-->
+                        <!--</li>-->
+                        <!--<li name='tabs_menu_222' class="tabs-last" style="display:none;">-->
+                        <!--<a class="tabs-inner" target="_iframe" href="javascript:void(0)">号源管理</a>-->
+                        <!--</li>-->
+                        <!--<li class="tabs-clear"></li>-->
+                <!--</ul>-->
+                <!--<div  id="page-title" class="global_tit"> 系统管理首页 </div>-->
+                <!--div class="panel-tool">
+                <a class="panel-tool-min" href="javascript:void(0)"></a>
+                <a class="panel-tool-max" href="javascript:void(0)"></a>
+                <a class="panel-tool-close" href="javascript:void(0)"></a>
+                </div-->
+
+                <!--<div class="page-title-btn" >-->
+                <!--<a id="" class="easyui-linkbutton l-btn l-btn-plain" data-options="iconCls:'icon-back'"  plain="true" href="javascript:history.back(-1);">返回</a>-->
+                <!--<a id="" class="easyui-linkbutton l-btn l-btn-plain" data-options="iconCls:'panel-tool-close'" plain="true" href="index.html">退出系统</a>-->
+                <!--</div>-->
+        <!--</div>-->
+</div>
+
+<div data-options="region:'center'" style="overflow:hidden;">
+<iframe id="_iframe" name="_iframe" width="100%" height="99%" frameborder="0" style="overflow: hidden" scrolling="auto" src="static Demo/hy/ks_table.html"/>
+</div>  
+</div>
+</body>
+</html>

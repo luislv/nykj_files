@@ -1,0 +1,351 @@
+[
+  {
+    "id": 1,
+    "name": "刘医生/中心门诊",
+    "num_zy": "20",
+    "num_yg": "19",
+    "num_bd": "11",
+    "num_dd": "11",
+    "handle":"<a class='btn_blue cz' onclick='setYuyue();'>预约设置</a>",
+    "children": [
+      {
+        "id": 11,
+        "name": "早班",
+        "num_zy": "120",
+        "num_yg": "20",
+        "num_bd": "11",
+        "num_dd": "11",
+        "state": "closed",
+        "children": [
+          {
+            "id": 101,
+            "name": "9:00-10:00",
+            "num_zy": "33",
+            "num_yg": "13",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+
+          },
+          {
+            "id": 102,
+            "name": "10:00-11:00",
+            "num_zy": "44",
+            "num_yg": "13",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+          },
+          {
+            "id": 103,
+            "name": "11:00-12:00",
+            "num_zy": "55",
+            "num_yg": "13",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "中班",
+        "num_zy": "32",
+        "num_yg": "20",
+        "num_bd": "11",
+        "num_dd": "22",
+        "state": "closed",
+        "children": [
+          {
+            "id": 111,
+            "name": "12:00-13:00",
+            "num_zy": "56",
+            "num_yg": "19",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+          },
+          {
+            "id": 112,
+            "name": "13:00-14:00",
+            "num_zy": "25",
+            "num_yg": "20",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "name": "晚班",
+        "num_zy": "26",
+        "num_yg": "20",
+        "num_bd": "11",
+        "num_dd": "22",
+        "state": "closed",
+        "children": [
+          {
+            "id": 121,
+            "name": "14:00-15:00",
+            "num_zy": "56",
+            "num_yg": "19",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+          },
+          {
+            "id": 122,
+            "name": "15:00-16:00",
+            "num_zy": "17",
+            "num_yg": "20",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+          },
+          {
+            "id": 123,
+            "name": "16:00-17:00",
+            "num_zy": "32",
+            "num_yg": "17",
+            "num_bd": "11",
+            "num_dd": "22",
+            "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+          }
+        ]
+      }
+    ]
+  },{
+  "id": 2,
+  "name": "黄医生/中心门诊",
+  "num_zy": "20",
+  "num_yg": "19",
+  "num_bd": "11",
+  "num_dd": "11",
+  "handle":"<a class='btn_blue cz' onclick='setYuyue();'>预约设置</a>",
+  "children": [
+    {
+      "id": 21,
+      "name": "早班",
+      "num_zy": "120",
+      "num_yg": "20",
+      "num_bd": "11",
+      "num_dd": "11",
+      "state": "closed",
+      "children": [
+        {
+          "id": 201,
+          "name": "9:00-10:00",
+          "num_zy": "33",
+          "num_yg": "13",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+
+        },
+        {
+          "id": 202,
+          "name": "10:00-11:00",
+          "num_zy": "44",
+          "num_yg": "13",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 203,
+          "name": "11:00-12:00",
+          "num_zy": "55",
+          "num_yg": "13",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "中班",
+      "num_zy": "32",
+      "num_yg": "20",
+      "num_bd": "11",
+      "num_dd": "22",
+      "state": "closed",
+      "children": [
+        {
+          "id": 211,
+          "name": "12:00-13:00",
+          "num_zy": "56",
+          "num_yg": "19",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 212,
+          "name": "13:00-14:00",
+          "num_zy": "25",
+          "num_yg": "20",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "晚班",
+      "num_zy": "26",
+      "num_yg": "20",
+      "num_bd": "11",
+      "num_dd": "22",
+      "state": "closed",
+      "children": [
+        {
+          "id": 221,
+          "name": "14:00-15:00",
+          "num_zy": "56",
+          "num_yg": "19",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 222,
+          "name": "15:00-16:00",
+          "num_zy": "17",
+          "num_yg": "20",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 223,
+          "name": "16:00-17:00",
+          "num_zy": "32",
+          "num_yg": "17",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        }
+      ]
+    }
+  ]
+},{
+  "id": 3,
+  "name": "吕医生/中心门诊",
+  "num_zy": "20",
+  "num_yg": "19",
+  "num_bd": "11",
+  "num_dd": "11",
+  "handle":"<a class='btn_blue cz' onclick='setYuyue();'>预约设置</a>",
+  "children": [
+    {
+      "id": 31,
+      "name": "早班",
+      "num_zy": "120",
+      "num_yg": "20",
+      "num_bd": "11",
+      "num_dd": "11",
+      "state": "closed",
+      "children": [
+        {
+          "id": 301,
+          "name": "9:00-10:00",
+          "num_zy": "33",
+          "num_yg": "13",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+
+        },
+        {
+          "id": 302,
+          "name": "10:00-11:00",
+          "num_zy": "44",
+          "num_yg": "13",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 303,
+          "name": "11:00-12:00",
+          "num_zy": "55",
+          "num_yg": "13",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "中班",
+      "num_zy": "32",
+      "num_yg": "20",
+      "num_bd": "11",
+      "num_dd": "22",
+      "state": "closed",
+      "children": [
+        {
+          "id": 311,
+          "name": "12:00-13:00",
+          "num_zy": "56",
+          "num_yg": "19",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 312,
+          "name": "13:00-14:00",
+          "num_zy": "25",
+          "num_yg": "20",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "晚班",
+      "num_zy": "26",
+      "num_yg": "20",
+      "num_bd": "11",
+      "num_dd": "22",
+      "state": "closed",
+      "children": [
+        {
+          "id": 321,
+          "name": "14:00-15:00",
+          "num_zy": "56",
+          "num_yg": "19",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 322,
+          "name": "15:00-16:00",
+          "num_zy": "17",
+          "num_yg": "20",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        },
+        {
+          "id": 323,
+          "name": "16:00-17:00",
+          "num_zy": "32",
+          "num_yg": "17",
+          "num_bd": "11",
+          "num_dd": "22",
+          "handle":"<a class='btn_blue tz' href='#'>停诊</a>"
+        }
+      ]
+    }
+  ]
+}
+]

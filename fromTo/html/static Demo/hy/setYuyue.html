@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <!--<link rel="stylesheet" type="text/css" href="js/easyui-themes/default/easyui.css">-->
+    <link rel="stylesheet" type="text/css" href="./css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="./css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./css/css.css">
+    <link rel="stylesheet" type="text/css" href="js/easyui-themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/edit_ui.css">
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<!--<div class="ks_tit">科室服务信息</div>-->
+<!--<div class="sel_box">-->
+<!--<label>科室选择：</label>-->
+<!--&lt;!&ndash;科室选择框&ndash;&gt;-->
+<!--<select id="ks_sel" style="width:150px"></select>-->
+
+<!--<div id="ks_box">-->
+<!--<ul id="ks_list" class="easyui-tree"-->
+<!--url="data/tree_data.json"-->
+<!--checkbox="true" animate="true" iconCls='icon-add'>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;日历&ndash;&gt;-->
+<!--<label>日期选择：</label>-->
+<!--<input id="rili" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"/>-->
+<!--</div>-->
+<!--<div class="table_box">-->
+<!--<div class="date_box">-->
+<!--<div class="prev_day"><a href="#">◀◀ <em>2015-08-18</em> 服务信息</a></div>-->
+<!--<div class="to_day"><em>2015-08-19</em> 服务信息</div>-->
+<!--<div class="next_day"><a href="#"><em>2015-08-20</em> 服务信息 ▶▶</a></div>-->
+<!--</div>-->
+<!--&lt;!&ndash;查询结果&ndash;&gt;-->
+<!--<table id="cx_result" class="easyui-treegrid" style="width:100%;"-->
+<!--url="data/treegrid_data_ks.json"-->
+<!--idField="id" treeField="name" autoRowHeight="true">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th field="name" width="20%" height="40">-->
+<!--<div style="text-align: center">科室</div>-->
+<!--</th>-->
+<!--<th field="num_zy" width="15%" align="center">资源数</th>-->
+<!--<th field="num_yg" width="15%" align="center">已挂号</th>-->
+<!--<th field="num_bd" width="15%" align="center">报到数</th>-->
+<!--<th field="num_dd" width="15%" align="center">订单数</th>-->
+<!--<th field="handle" width="20%" align="center">操作</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--</table>-->
+<div class="setYuyue" id="setYuyue">
+
+    <form action="" method="get">
+    <!--<div class="tit"><h2>预约设置</h2></div>-->
+        <!--  添加.dis，点击时禁止预约设置  -->
+    <div class="bm_tree"><span class="dis">安医院条件设置</span><span class="oc">按科室条件设置</span><span class="oc">按子级科室条件设置</span><span class="oc">按医生条件设置</span></div>
+        <div class="yy_box">
+    <dl>
+        <dt>是否挂号：</dt>
+        <dd>
+            <label><input name="guahao" type="radio" value="" checked />是</label>
+            <label><input name="guahao" type="radio" value="" />否</label>
+        </dd>
+    </dl>
+    <dl>
+        <dt>是否预约：</dt>
+        <dd>
+            <label><input name="yuyue" type="radio" value="" />是</label>
+            <label><input name="yuyue" type="radio" value="" checked />否</label>
+    </dl>
+    <dl>
+        <dt>单次服务时间：</dt>
+        <dd><input type="text" class="inp" value="30"/>min</dd>
+    </dl>
+    <dl>
+        <dt>时段间隔时长：</dt>
+        <dd><input type="text" class="inp" value="30"/>min</dd>
+    </dl>
+            </div>
+    <div class="btn_box">
+        <!--<a href="" class="btn ordsch">确定</a><a href="" class="btn ordsch">取消</a>-->
+        <input type="button" value="确定" class="btn ordsch fl_l" onclick="parent.Comm.dialogClose('');"/><input type="button" value="取消" class="btn ordsch fl_r" onclick="parent.Comm.dialogClose('')"/>
+    </div>
+    </form>
+</div>
+<script type="text/javascript" src="js/ks_table.js"></script>
+</body>
+</html>

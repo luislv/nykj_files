@@ -1,0 +1,54 @@
+*{  font-size:12px;  }
+body {font-family: 微软雅黑, "Microsoft YaHei", 宋体;  font-size:12px;  margin:0;  }
+h2 {  font-size:18px;  font-weight:bold;  margin:0;  margin-bottom:15px;  }
+.demo-info{  padding:0 0 12px 0;  }
+.demo-tip{  display:none;  }
+.ks_tit {background: #088ec9;padding: 10px;font-size: 16px;  font-weight: bold;  color: #fff;  }
+.sel_box {padding: 10px;}
+.sel_box label {font-weight: bold;}
+.table_box {padding:0 10px;}
+.table_box .date_box {border:1px solid #eee;height:36px;line-height:36px;color:#088EC9; text-align: center; border-top:3px solid #088ec9;}
+.table_box .date_box div {display: inline-block;width:33%;font-size: 14px;}
+.table_box .date_box div em,.table_box .date_box div a {font-size: 14px;}
+.table_box .date_box .to_day {font-weight:bold;}
+.btn_blue {background-color:#088ec9; padding:2px 10px; margin:3px 0; display:inline-block; color:#fff;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px;cursor: pointer;}
+.cz,.ck{ margin:3px 0;}
+.cz {margin-right:15px;}
+
+.setYuyue {width:400px;position:absolute;left:50%;top:50%;margin:-150px 0 0 -200px; background-color:#fff; border: 1px solid #088EC9;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px;}
+.setYuyue .tit {height:30px;line-height: 30px; background-color:#088EC9;}
+.setYuyue .tit h2 { font-size: 14px; color: #fff;padding-left:10px;}
+.setYuyue .bm_tree {padding:15px 10px 15px 15px;border-bottom: 1px solid #ccc;display: block;}
+.setYuyue .bm_tree span {border: 1px solid #999;padding:3px 5px;color:#999;margin-right:8px; cursor: pointer;}
+.setYuyue .bm_tree .sel {border: 1px solid #088EC9;color:#088EC9 }
+.setYuyue dl {padding:15px 15px 0 15px;line-height: 12px;}
+.setYuyue dl dt { float:left;padding-right:5px; font-weight: bold;}
+.setYuyue dl dd span {margin-right:10px; display: inline-block; cursor: pointer;}
+.setYuyue dl dd span input,.setYuyue dl dd span label {float:left;}
+.setYuyue dl dd .y input,.setYuyue dl dd .n input {margin-right: 5px;}
+.setYuyue dl dd .inp {border:1px solid #ccc;width:30px;margin:-3px 10px 0 0; color:#999;}
+.setYuyue .btn {margin-top:20px;padding:10px 30%;border-top: 1px solid #ccc;overflow: hidden;}
+.setYuyue .btn input {border:none;}
+.close {width:15px; height: 15px; background:url("../img/cross.gif") no-repeat 0 0; display: inline-block; cursor: pointer;position:absolute;right:8px; top:8px;}
+
+
+/*easy ui 风格修改*/
+.sel_box .textbox-invalid {border:1px solid #eee; background-color: #fafafa;padding:2px 3px;}
+.sel_box .validatebox-invalid { background-color: #fff;}
+.sel_box .combo {padding:2px 3px;margin-right:10px;border:1px solid #eee;}
+.sel_box .combo-arrow {padding:2px 1px}
+.sel_box .datebox .combo-arrow { background-image: url("../img/tili.gif"); background-repeat:no-repeat; background-position:4px 5px;}
+.panel-header, .panel-body {border:1px solid #eee;}
+#ks_box .tree{padding-top:5px;}
+#ks_box .tree li{}
+#ks_box .tree-folder,#ks_box .tree-file{display:none;}
+#ks_box .tree-node {height:24px;padding-left:7px;}
+#ks_box span {height:22px;line-height:22px;}
+#ks_box .tree-expanded,#ks_box .tree-collapsed {height:18px;widht:18px;margin:2px 0 2px 2px;}
+#ks_box .tree-checkbox0,#ks_box .tree-checkbox1,#ks_box .tree-checkbox2 {height:16px;width:16px;margin:3px 3px 0 3px; background-image: url("../img/sel_bg.png"); background-repeat: no-repeat;}
+#ks_box .tree-checkbox0{ background-position: 0 0;}
+#ks_box .tree-checkbox1{background-position: 0 -16px;}
+#ks_box .tree-checkbox2{background-position: 0 -32px;}
+.datagrid-sort-icon {display: none;}
+
+

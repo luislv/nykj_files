@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>排班管理</title>
+<link rel="stylesheet" type="text/css" href="../js/easyui-themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../js/easyui-themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../js/easyui-themes/color.css">
+<link href="../js/DatePicker/skin/WdatePicker.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../img/css.css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+<script src="../js/DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/propb.js?c=paiban"></script>
+<style type="text/css">
+.bcm{
+	border-bottom: 1px solid #c3eefc;
+	min-width:1024px;
+}
+.bc_box {
+	background-color: #fff;
+    border: 1px solid #c3eefc;
+    margin-top: 2px;
+    overflow: hidden;
+	/*border-top-width:0px;
+    /*position: relative;*/
+}
+.bc_title {
+	background-color: #fff;
+	border-right: 1px solid #c3eefc;
+	float:left;
+	width:50px;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:3px;
+	line-height:36px;
+	background: #e0ecff linear-gradient(to right, #e0ecff 0px, #fcfcfc 100%) repeat-x scroll 0 0;
+}
+.bc_select{
+	float:left;
+	width:500px;
+	height:100%;
+	line-height:28px;
+    overflow: hidden;
+}
+.bc_list{
+	background-color: #d1f2fb;
+    border: 1px solid #c4eefc;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    margin: 3px 5px 0 0;
+    overflow: hidden;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.bc_box .list {
+    height: 33px;
+    overflow: hidden;
+    position: relative;
+    width: 600px;
+    z-index: 1;
+}
+.bc_box .list ul {
+    display: table-row-group;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+.bc_box .list li {
+    background-color: #d1f2fb;
+    border: 1px solid #c4eefc;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    margin: 3px 5px 0 0;
+    overflow: hidden;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.bc_box .list li h2 {
+    margin: 0;
+    padding: 5px 0;
+    text-align: left;
+}
+.bc_box .list li h2 em {
+    float: right;
+}
+.bc_box .list .active {
+    background: #d1f2fb url("../img/tick.png") no-repeat scroll center bottom;
+}
+.scrollBar {
+    height: 36px;
+    overflow: hidden;
+	float:right;
+	width:70px;
+}
+.scrollBar .barL, .scrollBar .barR {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-left: 1px solid #c4eefc;
+    border-right: 1px solid #c4eefc;
+    cursor: pointer;
+    display: inline-block;
+    width: 15px;
+    float: left;
+	padding: 0 5px;
+}
+.scrollBar .barT {
+    background-image: url("../img/left.png");
+    height: 18px;
+}
+.scrollBar .barB {
+    background-image: url("../img/right.png");
+    height: 18px;
+}
+.scrollBar .barR {
+    background: rgba(0, 0, 0, 0) url("../img/plus.png") no-repeat scroll center center;
+    display: inline;
+	margin-top:3px;
+	margin-left:5px;
+    height: 28px;
+    text-align: center;
+    width: 20px;
+	border: 1px solid #c4eefc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.bc_btn {
+    overflow: hidden;
+	float:right;
+	width:500px;
+	margin-top:-1px;
+	overflow:hidden
+}
+.bc_btn li {
+	list-style:none;
+	display:inline;
+    background-color: #d1f2fb;
+    border: 1px solid #c3eefc;
+	/*border-top-width:0px;*/
+    border-radius: 3px;
+	height:30px;
+	line-height:28px;
+	padding:0px 5px;
+	margin: 0 1px;
+	cursor:pointer;
+	float:left;
+}
+.bc_btn li input{
+	padding:0px;
+	margin:0px;
+	list-style:none;
+}
+.bc_btn li.sel-tabs{
+	padding:0 10px;
+}
+.bc_btn li.sel-tabs:hover, .bc_btn li.selected{
+	border-top-width:0px;
+	height:31px;
+	background: #fff linear-gradient(to bottom, #fcfcfc 0px, #e0ecff 100%) repeat-x scroll 0 0;
+	font-weight:bold;
+}
+.bc_btn li.sel-box{
+	float:right;
+	background-color: #fff;
+	border-bottom-width:0px;
+	height:36px;
+	margin:0 0 0 0;
+}
+.bc_btn li.last{
+	width:59px;
+	line-height:36px;
+}
+.bc_btn li.first{
+	width:30px;
+	background-color: #e0ecff;
+	font-weight:bold;
+	line-height:18px;
+	text-align:center;
+}
+.bc_btn li.sel-style{
+	width:150px;
+	border-width:0px;
+	border-top-width:1px;
+}
+.bc_btn li.clear{
+	margin:0;
+	padding:0;
+	border-width:0px;
+	height:0;
+	display:block;
+}
+
+.bc-unit{
+	width:22px;
+	margin:1px 0px 1px 1px;
+	border:2px #e0ecff solid;
+	color:#0190d4;
+	height:30px;
+	overflow:hidden;
+	float:left;
+    border-radius: 3px;
+    cursor: pointer;
+	background-color: #fAfAfA;
+}
+.bc-unit li {
+	float:left;
+	border-width:0px;
+	padding:0px;
+	margin:0px;
+	background:rgba(0,0,0,0);
+}
+.bc-unit li.text {
+	width:100%;
+	height:100%;
+	text-align:left;
+	line-height: 15px;
+	padding-left:1px;
+	overflow:hidden;
+}
+.bc-unit li.text span{
+	display: inline-block;
+	vertical-align: middle;
+	height:100%;
+	word-break: break-all; word-wrap:break-word;
+}
+.bc-unit li.top,.bc-unit li.bottom {
+	width:10px;
+	height:10px;
+	margin-left:13px;
+	margin-top:-28px;
+	font-size:9px;
+	line-height:10px;
+	text-align: center;
+	padding-right:1px;
+}
+.bc-unit li.bottom {
+	margin-top:-11px;
+}
+
+.pb-search{
+	height:36px;
+	margin-top:-36px;
+	width:450px;
+	padding-left:10px;
+	line-height:30px;
+	font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+<div class="bcm">
+    <div class="bc_box">
+        <div class="bc_title">班次库</div>
+        <div class="bc_select"><div class="bc-sel-inner">
+        	<ul class="bc-unit">
+             <li class="text"><span>上午</span></li>
+             <li class="top">1</li>
+             <li class="bottom">门</li>
+             <li class="state"></li>
+             <li class="clear"></li>
+           </ul>
+        	<ul class="bc-unit">
+             <li class="text"><span>值</span></li>
+             <li class="top">2</li>
+             <li class="bottom">住</li>
+             <li class="state"></li>
+             <li class="clear"></li>
+           </ul>
+        </div></div>
+        <div class="scrollBar">
+            <div class="barL">
+            <div class="barT"></div>
+            <div class="barB"></div>
+            </div>
+            <div class="barR"></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <ul class="bc_btn">
+        <li class="sel-box last"><input type="checkbox" /> 多班次</li>
+        <li class="sel-box sel-style">
+        	<ul class="bc-unit">
+             <li class="text"><span>下午</span></li>
+             <li class="top">2</li>
+             <li class="bottom">住</li>
+             <li class="state"></li>
+             <li class="clear"></li>
+           </ul>
+        </li>
+        <li class="sel-box first">排班<br>样式</li>
+        
+        <li class="sel-tabs selected">全部</li>
+        <li class="sel-tabs">上班</li>
+        <li class="sel-tabs">非上班</li>
+        <li class="sel-tabs">特殊班</li>
+        <li class="clear"></li>
+    </ul>
+    <div class="clear"></div>
+</div>
+<div class="pb-search">
+选择科室：
+<select id="dep_tree" class="easyui-combotree" style="width:200px;"></select>
+&nbsp;&nbsp;&nbsp;
+月份：<input id="ss" class="easyui-timespinner"  style="width:80px;"  
+        required="required" data-options="min:'08:30',showSeconds:true" />
+</div>
+</body>
+</html>

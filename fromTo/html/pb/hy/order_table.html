@@ -1,0 +1,786 @@
+<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>预约订单列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="./css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="./css/comm.css">
+    <link rel="stylesheet" type="text/css" href="./css/css.css">
+    <link rel="stylesheet" type="text/css" href="./css/icon.css">
+    <link rel="stylesheet" type="text/css" href="./css/select2.css">
+    <link rel="stylesheet" type="text/css" href="./css/WdatePicker.css">
+    <link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/edit_ui.css">
+    <script type="text/javascript">
+        var webroot = '/project-dg';
+        var user = {'unitId': '14d8072b-5fe6-4ae8-ae1a-330bec01366e', userId: '999900001211', username: 'yyadmin'};
+        var voiceFtpDir = 'csm_voice';
+        var voiceHttpUrl = 'http://192.168.1.200:8000/csm_voice';
+        var voiceUploadHttpUrl = "http://119.147.23.84:13080/csmfile/file/json/upload.shtml";
+        var imageHttpUrl = "/uploadFiles/resources";
+    </script>
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/WdatePicker.js"></script>
+    <script type="text/javascript" src="./js/jquery.easyui.all.js"></script>
+    <script type="text/javascript" src="./js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="./js/select2.js"></script>
+    <script type="text/javascript" src="./js/select2_locale_zh-CN.js"></script>
+    <script type="text/javascript" src="./js/csm.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/auto.tip.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/diallel.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="./js/homepage.js"></script>
+    <script type="text/javascript" src="./js/hp-template.js"></script>
+    <script type="text/javascript" src="./js/listValueChange.js"></script>
+    <script type="text/javascript" src="./js/sequenceNoSet.js"></script>
+</head>
+<body>
+
+<div id="hDocPanel"></div>
+<input type="hidden" id="uid" name="userid" value=""/>
+
+<div id="tb">
+    <!--<div class='global_tit'>-->
+        <!--<div id='pagetitle' class='title'>订单列表</div>-->
+        <!--<div class='r_btn'>-->
+            <!--<a href='javascript:history.back(-1);' plain='true' title='返回'-->
+               <!--class='easyui-linkbutton' data-options="iconCls:'icon-back'"></a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="m_search" style="padding:10px 10px 10px 450px;position: relative;">
+        <!--<ul id='hDepName' name='depName' class='easyui-combotree'-->
+            <!--data-options="url:'/project-dg/hDep/f_json/deptree.shtml?role=1&selectMainDep=0&headerId=&headerValue=任职科室',method:'GET',lines:true,"-->
+            <!--style='width:200px;'></ul>-->
+        <!--<script type='text/javascript'>-->
+            <!--$(document).ready(function () {-->
+                <!--$('#hDepName').combotree({-->
+                    <!--loader: function (param, success, error) {-->
+                        <!--return false;-->
+                    <!--}-->
+                <!--});-->
+            <!--});-->
+        <!--</script>-->
+        <div class="sel_box">
+        <script type="text/javascript">
+            /*
+             * 预约设置
+             * @author lvjun
+             * @date 2015/08/12
+             */
+
+
+            $(function () {
+                //科室选择
+                $('#ks_sel').combo({
+                    required: true,
+                    editable: false
+                });
+                $('#ks_box').appendTo($('#ks_sel').combo('panel'));
+            });
+        </script>
+
+        <label>科室选择：</label>
+        <!--科室选择框-->
+        <select id="ks_sel" style="width:150px"></select>
+
+        <div id="ks_box">
+            <ul id="ks_list" class="easyui-tree"
+                url="data/tree_data.json"
+                checkbox="true" animate="true" iconCls='icon-add'>
+            </ul>
+        </div>
+
+        <!--日历-->
+        <label>日期选择：</label>
+        <input id="rili" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"/>
+            </div>
+            <!--<select id="hDocType" name="docType" class="easyui-validatebox">-->
+                <!--<option value="">人员类别</option>-->
+                <!--<option value="">已注册医师</option>-->
+                <!--<option value="11">未注册医师</option>-->
+                <!--<option value="20">已注册护士</option>-->
+                <!--<option value="21">未注册护士</option>-->
+            <!--</select>-->
+        <label><b>性别：</b></label>
+            <select id="peoSex" name="peoSex" class="easyui-validatebox">
+                <option value="1">男</option>
+                <option value="2">女</option>
+                <option value="9">不详</option>
+            </select>
+            <!--<select id="practiceState" name="practiceState" class="easyui-validatebox">-->
+                <!--<option value="">执业状态</option>-->
+                <!--<option value="09">未知</option>-->
+                <!--<option value="00">正常</option>-->
+                <!--<option value="01">已办理注册</option>-->
+                <!--<option value="02">已办理变更</option>-->
+                <!--<option value="03">已办理校验</option>-->
+                <!--<option value="04">已办理注销诊疗科目</option>-->
+                <!--<option value="05">已办理机构移交</option>-->
+                <!--<option value="06">已办理更换许可证</option>-->
+                <!--<option value="07">已办理停业</option>-->
+            <!--</select>-->
+        <label><b>订单状态：</b></label>
+            <select id="orderState" name="orderState" class="easyui-validatebox">
+                <option value="">已预约</option>
+                <option value="">已取消</option>
+                <option value="">未就诊</option>
+                <option value="">已就诊</option>
+                <option value="">爽约</option>
+            </select>
+
+            <input type="text" class="auto-tip" style="width:195px" data-tip="订单号/姓名/手机号" id="searchString"
+                   name="searchString" class="easyui-numberbox" validType="length[0,40]"/>
+            <input type="button" class="btn_search" onclick="hDoc.query()" iconCls="icon-search" plain="true"
+                   value="查询"/>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function viewOrder() {
+        Comm.dialog({
+            url: "viewOrder.html",
+            title: "订单信息",
+            width: 550,
+            height: 430,
+            type: 'iframe',
+            resizable: true,
+            collapsible: true,
+            closed: true,
+            modal: true
+        });
+    }
+
+    var start = 0;
+    $(document).ready(function () {
+        $('#hpeoSex').css('width', "110px");
+        //$('#hDocType').css('width',"128px");
+        //var s=1,o=1;
+        $('#' + hDoc.panel).datagrid({
+            fit: true,
+            nowrap: true,
+            autoRowHeight: false,
+            striped: true,
+            fitColumns: true,
+            collapsible: true,
+            remoteSort: false,
+            singleSelect: true,
+            columns: [
+                [
+                    {field: 'orderid', title: '订单编号', width: 20},
+                    {field: 'peoName', title: '姓名', width: 60},
+                    {field: 'peoSex', title: '性别', width: 20},
+                    {field: 'peotel', title: '电话',width: 50},
+                    {field: 'depName', title: '科室',width: 65},
+                    {field: 'docName', title: '医生', width: 30},
+                    {field: 'orderTime', title: '最近一次订单时间', width: 65},
+                    {field: 'orderType', title: '订单状态', width: 50},
+                    {
+                        field: '_operate', title: '操作', width: 20,
+                        formatter: function (value, r) {
+                            return ['<a href="#" onclick="viewOrder()" class="view_btn" title="">详情</a>'].join('');
+                        }
+                    }
+                ]
+            ],
+            pagination: true,
+            rownumbers: true,
+            pageNumber: 1,
+            pageSize: 10,
+            toolbar: '#tb',
+            onDblClickRow: function () {
+                var row = $('#' + hDoc.panel).datagrid("getSelected");
+                hDoc.edit(row.docId, row.docName);
+            }
+        });
+
+        var datas = [{
+            "orderid": "001",
+            "docName": "庞广兴",
+            "peotel": "0755-98765432",
+            "orderType": "正常",
+            "orderBy": 11,
+            "docNo": "",
+            "depName": "骨外科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009126",
+            "peoSex": "男",
+            "docMajor": "",
+            "isDelete": "0",
+            "orderTime": "2015-08-13 09:15",
+            "icDocId": "74975",
+            "docImages": "",
+            "createDate": 1431063497000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "刘世桢",
+            "docEdu": "无学历",
+            "detailDesc": "   ",
+            "updateDate": 1437706355000,
+            "isEnabled": "0",
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "78c18dc3-ee63-48be-8b9b-f6349a663536",
+            "updateUser": "yyadmin",
+            "mobile": "13689981034"
+        }, {
+            "orderid": "002",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 5,
+            "docNo": "",
+            "depName": "骨外科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009126",
+            "peoSex": "男",
+            "docMajor": "",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "74789",
+            "docImages": "90960",
+            "createDate": 1431063496000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "庞广兴",
+            "docEdu": "无学历",
+            "detailDesc": "&lt;p&gt;&lt;span style=\"color: rgb&#40;51, 51, 51&#41;; font-family: Tahoma, Helvetica, Arial, 閿熸枻鎷烽敓鏂ゆ嫹, &#39;Microsoft YaHei&#39;, sans-serif; font-size: 12px; line-height: 18px; background-color: rgb&#40;238, 241, 246&#41;;\"&gt;庞广兴&lt;/span&gt;&lt;/p&gt;",
+            "updateDate": 1437549618000,
+            "isEnabled": "0",
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "0ca7c6a9-cb76-47db-8812-28e1c8d078e2",
+            "updateUser": "yyadmin",
+            "mobile": ""
+        }, {
+            "orderid": "003",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 2,
+            "docNo": "",
+            "depName": "骨外科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009126",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "74985",
+            "docImages": "",
+            "createDate": 1431063497000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "曾淳",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1437706347000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "d9eb5c82-9d9c-457d-902d-e1c80a3c92b9",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "004",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 1,
+            "docNo": "",
+            "depName": "骨外科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009126",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75059",
+            "docImages": "",
+            "createDate": 1431063497000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "梁润林",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1437706345000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "cd2ab1e3-04b9-4777-8aba-b92285e8daf4",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "005",
+            "docName": "庞广兴",
+            "peotel": "0769-28636300",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "骨外科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009126",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75102",
+            "docImages": "",
+            "createDate": 1431063498000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "黎松波",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432260735000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "2ff8bca2-7bbd-4140-afee-ae0e35d58336",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "006",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "风湿科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009103",
+            "peoSex": "女",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75185",
+            "docImages": "",
+            "createDate": 1431063498000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "区冰玲",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432260866000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "8eaa66e0-5413-48a3-a168-63707d0673fc",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "007",
+            "docName": "庞广兴",
+            "phone": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "风湿科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009103",
+            "peoSex": "女",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75268",
+            "docImages": "",
+            "createDate": 1431063499000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "吴恒莲",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432260852000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "fe436648-5c69-4dd4-b26e-781a8a89120b",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "008",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "风湿科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009103",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75216",
+            "docImages": "",
+            "createDate": 1431063498000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "吴记平",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432260915000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "bedbbd5f-015e-4f94-9d7d-789e73bacbfa",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "009",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "风湿科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009103",
+            "peoSex": "女",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75666",
+            "docImages": "",
+            "createDate": 1431063501000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "杨彩红",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432260929000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "d192f6f0-30f1-4e8e-bf2c-92ca51c75991",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "010",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "血液内科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009119",
+            "peoSex": "女",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75015",
+            "docImages": "",
+            "createDate": 1431063497000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "姜义荣",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432260985000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "b42d7e53-dcf3-4e59-a53e-6c45c16b14bf",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "011",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "血液内科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009119",
+            "peoSex": "女",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75194",
+            "docImages": "",
+            "createDate": 1431063498000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "祁妙华",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432261070000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "cd5b9257-91e3-4c28-a0b2-ee8e55d67d16",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "012",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "血液内科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009119",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "74987",
+            "docImages": "",
+            "createDate": 1431063497000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "赖应昌",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432261038000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "68385d14-2ca5-4ec1-976c-e75baef1cc5a",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "013",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "肿瘤内科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009116",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75567",
+            "docImages": "",
+            "createDate": 1431063500000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "何宇",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432257554000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "49375dbf-2b98-4493-9be3-391338302f32",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "014",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "肿瘤内科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009116",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75463",
+            "docImages": "",
+            "createDate": 1431063500000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "刘淳",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432257390000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "9abe0521-9571-4edd-8b9d-54b9ed73cf99",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "015",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "肿瘤内科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009116",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "75445",
+            "docImages": "",
+            "createDate": 1431063500000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "姚满田",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432257246000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "61ee8dcd-a850-4803-9b47-74729e8fce71",
+            "mobile": "",
+            "updateUser": "yyadmin"
+        }, {
+            "orderid": "016",
+            "docName": "庞广兴",
+            "peotel": "",
+            "orderType": "正常",
+            "orderBy": 0,
+            "docNo": "",
+            "depName": "肿瘤内科",
+            "hosId": "14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+            "depId": "c30bf445-bc83-44c5-81ff-299009009116",
+            "peoSex": "男",
+            "isDelete": "0",
+            "orderTime": "2015-08-13  09:15",
+            "icDocId": "74834",
+            "docImages": "",
+            "createDate": 1431063496000,
+            "qq": "",
+            "idMainDep": "0",
+            "peoName": "廖景升",
+            "docEdu": "无学历",
+            "isEnabled": "0",
+            "updateDate": 1432257270000,
+            "hosName": "东莞市人民医院",
+            "englishName": "",
+            "beforeName": "",
+            "createUser": "yyadmin",
+            "practiceState": "正常",
+            "email": "",
+            "wechat": "",
+            "docId": "c5bdd81e-0a8b-467f-8633-a7b0eb014704",
+            "mobile": "18688663539",
+            "updateUser": "yyadmin"
+        }];
+        $('#hDocPanel').datagrid('loadData', datas);
+    });
+
+    var hDoc = {
+        panel: 'hDocPanel',
+        //查询
+        query: function () {
+            autoTip.clear();
+            var depid = $(".combo-value").val(), job = $('#hdocName').val(), title = $('#horderTime').val();
+            if (depid != null && depid != "") {
+                $("#pagetitle").text("【" + $(".tree-node-selected .tree-title").text() + "】" + "人员基本信息");
+            } else {
+                $("#pagetitle").text("人员基本信息");
+            }
+            $('#hDocPanel').datagrid('loadData', datas);
+        },
+        //编辑
+        edit: function (id, docName) {
+            parent.menuInfo.clickMenu(docName + ' - 医生基本信息', '/hDoc/f_view/toedit.shtml?id=' + id, true);
+        },
+
+        show: function (docId, docName, hosId) {
+            parent.menuInfo.clickMenu(docName, '/hSchWork/f_view/index.shtml?docId=' + docId + "&peoName=" + docName + "&hosId=" + hosId, true);
+        },
+
+        //回收站
+        recycle: function () {
+            parent.menuInfo.clickMenu('医生回收站', '/hDoc/f_view/recycleIndex.shtml', true);
+        },
+
+        add: function () {
+            parent.menuInfo.clickMenu('新增医生', '/hDoc/f_view/toedit.shtml', true);
+        },
+
+        //审核列表APPROVE
+        approveList: function () {
+            parent.menuInfo.clickMenu('医生审核列表', '/hDocApprove/f_view/index.shtml?tableName=H_DOC_APPROVE', true);
+        },
+
+        //移除
+        del: function (id, docName) {
+            var curRow = $('#' + hDoc.panel).datagrid('getSelected');
+            if (curRow) {
+                $.messager.confirm('提示', '确认移除“' + docName + '”？', function (r) {
+                    if (r) {
+                        $.ajax({
+                            url: '/project-dg/hDoc/f_json/delete.shtml',
+                            type: 'post',
+                            data: {'id': curRow.docId},
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data.result == "success") {
+                                    Comm.prompt('移除成功!');
+                                    var tab_title = parent.$('.tabs-selected .tabs-title').text();
+                                    parent.menuInfo.clickMenu('医生审核列表', '/hDocApprove/f_view/index.shtml?tableName=H_DOC_APPROVE', true);
+                                    parent.menuInfo.closeMenu(tab_title);
+                                }
+                                else Comm.prompt('移除失败!');
+                            }
+                        });
+                    }
+                });
+            }
+            else $.messager.alert('提示', '请选择需要移除的数据.');
+        }
+    };
+
+</script>
+<script type="text/javascript" src="js/ks_table.js"></script>
+</body>
+</html>

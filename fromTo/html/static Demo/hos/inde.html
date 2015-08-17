@@ -1,0 +1,703 @@
+
+<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>医院基本信息</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+
+<link rel="stylesheet" type="text/css" href="./css/easyui.css">
+<link rel="stylesheet" type="text/css" href="./css/comm.css">
+<link rel="stylesheet" type="text/css" href="./css/css.css">
+<link rel="stylesheet" type="text/css" href="./css/icon.css">
+<link rel="stylesheet" type="text/css" href="./css/select2.css">
+<link rel="stylesheet" type="text/css" href="./css/WdatePicker.css">
+<link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.css" >
+
+<script type="text/javascript">
+var webroot='/project-dg';
+var user = {'unitId':'14d8072b-5fe6-4ae8-ae1a-330bec01366e',userId:'999900001211',username:'yyadmin'};
+var voiceFtpDir = 'csm_voice';
+var voiceHttpUrl = 'http://192.168.1.200:8000/csm_voice';
+var voiceUploadHttpUrl = "http://119.147.23.84:13080/csmfile/file/json/upload.shtml";
+var imageHttpUrl = "/uploadFiles/resources";
+</script>
+<script type="text/javascript" charset="utf-8" src="./js/zh-cn.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/WdatePicker.js"></script>
+<script type="text/javascript" src="./js/jquery.easyui.all.js"></script>
+<script type="text/javascript" src="./js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="./js/select2.js"></script>
+<script type="text/javascript" src="./js/select2_locale_zh-CN.js"></script>
+<script type="text/javascript" src="./js/csm.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/common.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/auto.tip.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/diallel.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="./js/homepage.js"></script>
+<script type="text/javascript" src="./js/hp-template.js"></script>
+<script type="text/javascript" src="./js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="./js/upload_file.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/diyUpload.css" />
+<script type="text/javascript" src="./js/listValueChange.js"></script>   
+<script type="text/javascript" charset="utf-8">
+   window.UEDITOR_HOME_URL = "./ueditor1_4_3-utf8-jsp/";//编辑器项目路径
+</script>
+<script type="text/javascript" src="./ueditor1_4_3-utf8-jsp/ueditor.config.js"></script>
+<script type="text/javascript" src="./ueditor1_4_3-utf8-jsp/ueditor.all.min.js"></script>
+<script type="text/javascript">
+
+function uploadWechat(){	
+	//单图片上传
+    $.ajaxFileUpload({
+	    url:'/project-dg/hHos/f_view/uploadImge.shtml?name=wechatFile',//服务器url地址
+	    secureuri:false,
+	    fileElementId:'wechaPhoto',
+	    dataType: 'json',
+	    success: function (data)
+	    {
+	   	 if (data.code === 'success') {
+				  $.messager.show({ title: '提示', msg: '上传图片成功！' });
+	             //获取到服务器返回路径 并创建html
+	             $("#wechatImage").attr("src",'/uploadFiles/resources/'+data.data.filePath); 
+	             $('#wechat_mp_qrcode').val(data.data.id);
+	   	 }
+	    }
+  }); 
+}
+
+</script>
+<script>
+//新增医疗联合体
+function hosCis() {
+//通过弹出窗口的方式打开页面
+parent.menuInfo.clickMenu('医疗联合服务体系','/hHosCis/f_view/index.shtml',true);
+}
+</script>
+
+<style>
+		select, input{width:120px;}
+		th{text-align: right !important; padding-right:15px !important;}
+		input[type="radio"]{width:20px}
+				
+</style>
+
+</head>
+<body>
+	<div class='global_tit'>
+  <div class='title'>医院基本信息</div>
+  <div class='r_btn'>
+	   <a href='javascript:history.back(-1);' plain='true' title='返回'
+      class='easyui-linkbutton' data-options="iconCls:'icon-back'"></a>
+  </div>
+</div>
+    <input type="hidden" id="uname" name="username" value="yyadmin"/>
+	<form id="editFormHHos" method="post">
+
+		<input type="hidden" name="hosId" value="14d8072b-5fe6-4ae8-ae1a-330bec01366e"/>
+		<input type="hidden" name="createUser" value="admin" />
+		<input type="hidden" name="updateUser" value="icsys" />
+			<table class="table table_min">
+				<tbody>
+					<tr>
+						<th class="t_title" width="120" >医院名称</th>
+						<td class="t_cont" colspan="3">
+							<span style="margin:0 10px;">东莞市人民医院</span>
+							<input type="hidden" style="width:350px;"  name="hosName" value="东莞市人民医院" class="easyui-validatebox dis_input" />
+						</td>
+						<td rowspan="7" width="370">
+							<div id="upload_tab" class="up_box">
+							  <div id="view_box">
+							    <ul>
+							   		 
+								     <li id="big_0" >
+								        <div class="viewThumb"><img src="./images/1435153021784.jpg" /></div>
+								      </li>
+								     
+							    </ul>
+							  </div>
+							  <div class="parentFileBox">
+								<span class="prev"><i></i></span>
+								<span num="4" class="next"><i></i></span>
+							    <ul class="fileBoxUl" id="fileBoxUI">
+							       
+									    <li id="small_0" pid="243" class="diyUploadHover hover">
+								        <div class="viewThumb"><img id="small_0_img" src="./images/1435153021784.jpg" /></div>
+								        <div class="diyCancel"></div>
+								      	</li>
+								     
+							    </ul>
+							    <div class="div">
+							    <div class="move">
+							        <div class="l_mo">左移</div>
+							        <div class="r_mo">右移</div>
+							    </div>
+							      <div class="line">
+							        <div class="span">
+							        </div>  
+							          <input idnum='0' id="images_input" accept="./images/*" onchange="uploadImage(this)" name="file" type="file" class="fileInput" style="width:0; overflow:hidden;"/>
+							          <label title="图片大小不超过2M" for="images_input" onmouseover="document.getElementById('images_input')" class="file1">&nbsp;</label>
+							        </div>
+							    </div>
+							  </div>
+							</div>
+							<input type="hidden" name="hosImages" id="hosImages" value="243"/>
+						</td>
+					</tr>
+					<tr>
+                       <th class="t_title" >医院简称</th>
+						<td class="t_cont"  colspan="3">
+							<span style="margin:0 10px;">东莞人医</span>
+							<input type="hidden" style="width:350px;" name="shortName" value="东莞人医" class="easyui-validatebox "  /></td>
+					</tr>
+					<tr><th class="t_title" >医院别名</th>
+						<td class="t_cont" colspan="3">
+							<span style="margin:0 10px;"></span>
+							<input type="hidden" style="width:350px;" name="hosAlias" value="" class="easyui-validatebox "  /></td>
+					</tr>
+					<tr><th class="t_title" >英文名称</th>
+						<td class="t_cont" colspan="3">
+							<span style="margin:0 10px;"></span>
+							<input type="hidden" style="width:350px;" name="englishName" value="" class="easyui-validatebox "  /></td>
+					</tr>
+					<tr>
+						<th class="t_title" >曾用名称</th>
+						<td class="t_cont" colspan="3">
+							<span style="margin:0 10px;">东莞县人民医院</span>
+							<input type="hidden" style="width:350px;" name="beforeName" value="东莞县人民医院" class="easyui-validatebox " /></td>
+					</tr>
+					<tr>
+						<th class="t_title" >医院类型</th>
+						<td class="t_cont" >
+							<span style="margin:0 10px;">综合医院</span>
+							<input type="hidden" name="hosClass" value="A1"/>
+						</td>
+						<th class="t_title" width="120">医院等级</th>
+						<td class="t_cont" >
+							<span style="margin:0 10px;"></span>
+							<input type="hidden" name="hosLevel" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<th class="t_title" >执业状态</th>
+						<td class="t_cont" >
+							<span style="margin:0 10px;">已办理变更</span>
+							<input type="hidden" name="practiceState" value="02"/>
+						</td>
+						<th class="t_title" >医院级别</th>
+						<td class="t_cont" >
+						    <span style="margin:0 10px;">三级</span>
+							<input type="hidden" name="hosGrade" value="3"/>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+				<div id="tt" class="easyui-tabs" style="min-width:1010px;" >								    
+				    
+				    <div title="联系方式" style="padding:2px;">						
+						<table  class="table table_min" style="margin:0 0 55px 0">
+						<tbody>												
+					        <tr>
+						       <th class="t_title" width="120">联系地址</th>
+						       <td class="t_cont" colspan="3">
+								<input type="text" name="address" style="width:350px;" value="东莞市万江区新谷涌万道路南3号（万江院区）、东莞市东城区明新路29号（普济院区）、东莞市莞城区沙地塘88号（红楼院区）、东莞市莞城王屋街23号（第一门诊部）、东莞市东城区樟村桃花园（第三门诊部）" class="easyui-validatebox"  validType="length[0,190]"/>
+							   </td>
+							   <td rowspan="6" width="160" align="center">
+							      <div id="showimg"><img src="./images/1430878178890.jpg" id="wechatImage" style="width:150px; height:150px; border: 0;" alt="文件不存在" /></div>
+								  <div class="validate_info">微信公众号二维码</div>
+						       </td>
+					       </tr>
+					        <tr>
+						       <th class="t_title" width="120">业务联系人</th>
+						       <td class="t_cont" width="250">
+							       <input style="width:200px;" type="text" name="contactName" value="莫新发" class="easyui-validatebox" required="required" missingMessage="不能为空" validType="length[0,30]"/>
+							       <span style="color:red">*</span>
+						       </td>
+						       <th class="t_title" width="120">联系地址邮编</th>
+						       <td class="t_cont" width="250"><input style="width:200px;" type="text" name="zipCode" value="" class="easyui-numberbox" validType="length[0,6]"/></td>
+					       </tr>
+					       <tr>
+						       <th class="t_title" >联系人电话</th>
+						       <td class="t_cont">
+							       <input style="width:200px;" type="text" name="contactPhone" value="" class="easyui-validatebox" required="required" missingMessage="不能为空" validType="length[0,20]"/>
+							       <span style="color:red">*</span>
+						       </td>
+						       <th class="t_title" >联系人传真</th>
+						       <td class="t_cont">
+							      <input style="width:200px;" type="text" name="hosFax" value="0769-28637333" class="easyui-validatebox" validType="length[0,20]"/>
+						       </td>
+					       </tr>
+					<tr>
+						<th class="t_title" >官方网址</th>
+						<td class="t_cont" colspan="3">
+							<input type="text" name="hosUrl" style="width:350px;" value="http://www.dgphospital.com/" class="easyui-validatebox" validType="length[0,190]"/>
+						</td>
+					</tr>					
+					<tr>
+						<th class="t_title" >服务电话</th>
+						<td class="t_cont">
+							<input style="width:200px;" type="text" name="hosPhone" value="0769-28637333" class="easyui-validatebox"  required="required" missingMessage="不能为空" validType="phone"/>
+							<span style="color:red">*</span>
+
+						</td>
+						<th class="t_title" >服务邮箱</th>
+						<td class="t_cont"><input style="width:200px;" type="text" name="hosEmail" value="dgrmyy@hos.com" class="easyui-validatebox" validType="email" /></td>
+					</tr>
+					<tr>
+						<th class="t_title" width="120">微信公众号</th>
+						<td class="t_cont"><input style="width:200px;" type="text" name="wechatMp" value="1134456" class="easyui-validatebox" validType="length[0,20]" /></td>
+						<th class="t_title" width="120">微信公众号二维码</th>
+						<td class="t_cont">
+							<input name="wechatFile" type="file" class="btn_file" id="wechaPhoto" onchange="uploadWechat()" style="width:200px;"></input>
+							<input name="wechatMpQrcode" type="hidden" id="wechat_mp_qrcode" value="241"/>
+						</td>
+					</tr>
+					</tbody>
+                 </table>
+																		
+				</div>
+				    <div title="医院介绍" style="padding:2px;">
+				        <textarea id="HosDes" name="detailDesc" class="textarea" style="height:250px;margin:0 0 55px 0">&lt;p&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&nbsp;&nbsp;&nbsp;东莞市人民医院新址位于万江区新谷涌村和道滘镇昌平村交汇处，占地面积约29万平方米，建筑面积约18万平方米，是集医疗、教学、科研、预防和康复等为一体的功能化、人文化、智能化、园林化的大型现代化绿色环保医疗基地，整个医院做到洁、污分流，医、患分流，为广大市民提供更完善的住院、门诊、急诊、体检等医疗服务。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br style="-ms-word-break: break-all; -ms-word-wrap: break-word;"/&gt;&lt;span style="font-family: SimSun; font-size: 16px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&lt;span class="Apple-converted-space"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&nbsp;&nbsp;&nbsp;医院编制床位2382张，设有三个院区（万江院区、普济院区、红楼院区），4个门诊部，37个临床科室，13个医技科室，31个现代化洁净手术间，年门、急诊量254万人次，年住院近8万人次，年住院手术4万余例次。医院配有各种先进、高档的手术仪器与麻醉设备，引进全市首家静脉药物配送中心，为临床用药提供强有力的保障。药房配备自动发药机，大大增加配药的效率与精准率，检验科实现了各个门诊、院区间的联网及检验单打印，致力打造数字化医院。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&nbsp;&nbsp;&nbsp;&lt;span style="font-family: FangSong_GB2312; font-size: 18px;"&gt;医院吸贤纳才，在岗员工3764人，其中聘任的高级职称449人（正高158人、副高291人），博士42人，硕士247人。在培养人才的基础上，特别重视强化人才管理服务，规范人才信息资源。建立了人才队伍资源信息库，实现人才信息全面、准确、及时、动态管理。努力促进人才进步，让有为之士得到发展学术和医术的宽广平台。&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px;"&gt;&lt;br style="-ms-word-break: break-all; -ms-word-wrap: break-word;"/&gt;&lt;/span&gt;&lt;span style="font-family: FangSong_GB2312; font-size: 18px; -ms-word-break: break-all; -ms-word-wrap: break-word;"&gt;&nbsp;&nbsp;&nbsp;医院的飞腾发展，除了有赖医院奋发向上的医务人员外，还需先进的设备作为后盾。医院拥有一大批国外进口先进医疗设备，如西门子PET/CT、飞利浦ECT、西门子3.0T磁共振、飞利浦256排CT 
+、全数字化血管减影系统、医用直线加速器、实时三维彩超、双能X线骨密度测量仪、数字化拍片机、各种腔镜系统、钬激光系统、全自动生化分析仪、全自动化学发光免疫分析仪、准分子激光系统、美容激光系统、数字化钼靶X光机、乳腺微创活检旋切系统、高压氧仓等。高档完善的医疗设备，为高效准确的诊断治疗提供了强有力的保障。&lt;/span&gt;&lt;br style="-ms-word-break: break-all; -ms-word-wrap: break-word;"/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br style="-ms-word-break: break-all; -ms-word-wrap: break-word;"/&gt;&lt;/p&gt;</textarea>
+				    </div>
+				    <div title="交通路线" style="padding:2px;">	
+				        <table width="100%" class="table_min">
+				          <tr>
+				            <td width="60%">
+				               <textarea id="busRouteDes" name="busRoute" class="" style="height:250px;width:auto;margin:0 0 45px 0">&lt;p&gt;&lt;strong&gt;东莞市人民医院总&lt;/strong&gt;&lt;strong&gt;院&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-size: 14px;"&gt;地址：东莞市万江区新谷涌万道路南3号&lt;br/&gt;公交线路：【市人民医院】：10路、12路、35路、50路、X8路、直达汽车总站快线K8路; 
+【新谷涌路口】：2路、L5B路、77路、132路、307路、道滘镇公汽9路，高埗镇公汽12路。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-size: 14px;"&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-size: 16px;"&gt;&lt;strong&gt;东莞市人民医院红楼院区&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-size: 14px;"&gt;地址：东莞市城区沙地塘88&lt;br/&gt;公交线路：【人民医院站】32路、36路、48路、50路、X5路；【红川路口站】K3路、K5路；【丽景新邨站】33路、58路、24路、22路、7路、12路；【家乐福站】7路、12路、22路、33路、L5A路。&lt;/span&gt;&lt;/p&gt; </textarea>
+				            </td>
+				            <td valign="top">
+				               <div style="border:1px solid gray;height:315px;width:98%;" align="center">
+				                  <div style="width:350px;margin-top:3px">                                                 
+				                                                                     百度地图(经纬度):&nbsp; x:<input type="text" style="width:85px;" readonly="readonly" id="jingdu" name="longitude" value="113.776657"   />
+							        &nbsp; y:<input type="text" style="width:85px;" readonly="readonly" id="weidu" name="latitude" value="23.037769"  />
+							      </div> 
+							      <iframe src="/project-dg/hHos/f_view/baiduditu.shtml?longitude=113.776657&latitude=23.037769" style="width:98%;height:250px;margin-top:5px"></iframe>
+						       </div>
+				            </td>
+				          </tr>
+				        </table>			      				        
+																						        			      
+					</div>
+				    <div title="医疗体系" style="padding:2px;">
+				        <!--div id="tb" class="m_search">
+			              <input type="button"  onclick="hHosCis.add()" class="btn_addA" iconCls="icon-add" plain="true" value=" 服务体系" />	
+			              <input type="button"  onclick="flush()" class="btn" iconCls="" plain="true" value="刷新" />		    
+		               </div-->
+		               <div id="tt1" class="easyui-tabs">
+		               <div title="主分院" style="padding:2px;">
+				       <div style="margin:0 0 55px 0;height:250px;">				      
+				          <div id="hHosParentPanel"></div>				            			       				       
+				       </div>	
+				       </div>
+				       <div title="医联体" style="padding:2px;">		       
+				       <div style="margin:0 0 55px 0;height:250px;">
+				          <div id="hHosCisPanel"></div>				              
+				       </div>
+				       </div>	
+				       </div>			                				            
+				    </div>
+				    <div title="预约设置" style="padding:2px;">
+				      <div style="margin:0 0 55px 0;height:250px">					       	
+				          <input type="hidden" name="hos_id" value="14d8072b-5fe6-4ae8-ae1a-330bec01366e" />			      
+			              <input type="hidden" name="dep_id" value="0" />
+			              <input type="hidden" name="doc_id" value="0" />			            			        
+			              <input type="hidden" name="id" value="51b84d98-80f1-4189-8744-ce1d94c6198e" />
+				          <table class="table">
+				           <tbody>
+					           <tr>
+						          <th class="t_title" width="200">是否接受实时挂号<span style="color:red">*</span></th>
+						          <td class="t_cont">
+							         <label><input type="radio" id="" name="is_register" class=""  value="0" checked="checked" />是&nbsp;</label><label><input type="radio" id="" name="is_register" class=""  value="1" />否&nbsp;</label>
+
+						             <input type="hidden" value="0" name="isRegister_ys"/>
+						          </td>
+					           </tr>
+					           <tr>
+						          <th class="t_title" width="200">是否接受提前预约<span style="color:red">*</span></th>
+						          <td class="t_cont">
+							         <label><input type="radio" id="" name="is_order" class=""  value="0" checked="checked" />是&nbsp;</label><label><input type="radio" id="" name="is_order" class=""  value="1" />否&nbsp;</label>
+
+                                     <input type="hidden" value="0" name="isOrder_ys"/>
+						          </td>
+					           </tr>
+					           <tr>
+                                  <th class="t_title" width="200">单次诊疗时间<span style="color:red">*</span></th>
+                                  <td class="t_cont">                       		         
+                       		         <input id="t_m"  class="easyui-numberspinner" required="required" missingMessage="该输入项为必输项" name="time_interval" value="300" style="width:80px;"  data-options="min:0,editable:true,validType:'length[0,11]'" /><label>秒</label> 
+                                     <input type="hidden" value="300" name="timeInterval_ys"/>
+					              </td>
+					           </tr>					           
+					           <tr>
+                                   <th class="t_title" width="200">网络实时挂号号源比例<span style="color:red">*</span></th>
+						           <td class="t_cont">
+							          <input id="yrp" type="text" class="easyui-numberbox" required="required"  data-options="min:0,max:100,precision:0" name="register_percent" value="100" />%
+                                      <input type="hidden" value="100" name="registerPercent_ys"/>
+						           </td>
+					           </tr>
+					           <tr>
+                                  <th class="t_title" width="200">网络提前预约号源比例<span style="color:red">*</span></th>
+						          <td class="t_cont">
+							         <input id="yop" type="text" class="easyui-numberbox" required="required"  data-options="min:0,max:100,precision:0" name="order_percent" value="100"/>%
+                                     <input type="hidden" value="100" name="orderPercent_ys"/>
+						          </td>
+					           </tr>										          
+				           </tbody>
+			            </table>
+				      </div>
+				    </div>				    
+				</div>
+			<div class="bottom_float">
+		         <input type="button" class="btn" id="changeFormHHosSubmitBtn" onclick="beforeSave()" value="预保存" />
+				 <input type="button" class="btn" id="saveSubmitBtn" onclick="save()" value="保存提交"/>
+				 <input type="button" class="btn" id="changeFormHHosSubmitBtn" onclick="recoverySave()" value="查看记录"/>
+				 <!--input type="button"  onclick="hosCis()" class="btn_save" iconCls="icon-add" plain="true" value="医疗体系"/-->
+			     <input type="button" class="btn" id="showDepBtn" onclick="javascript:showDep()" value="科室信息" />	
+			     <input type="button" id="showDocBtn" class="btn" onclick="javascript:showDoc()" value="人员信息" />		
+			</div>
+			<input type="hidden" name="preSaveId" value=""  /> 
+    </form>      
+    
+	<script type="text/javascript">
+	
+	var flag = false;
+	$(document).ready(function () {						 		
+		$.each(["is_register","is_order"], function(i, n){
+			$("input[name='"+n+"']").change(function(){				 
+				 isOpen.changeConfirm(n);				 
+			 });
+		});
+				 
+		 $('#'+hHosCis.panel).datagrid({
+			 fit:true,
+             fitColumns:true, 
+             nowrap: true,
+             autoRowHeight: true,
+             striped: true,
+             collapsible:false, 
+             singleSelect:true,
+             remoteSort:false,
+             animate: true,
+			 url:'/project-dg/hHosCisRelation/f_json/pageQuery.shtml', 			 
+			 idField:'rid',    
+			 treeField:'cisName',
+			 queryParams: {
+	            'type' : '02',
+	            'findHosId':'14d8072b-5fe6-4ae8-ae1a-330bec01366e'
+			 },
+			 pagination:true,
+			 columns:[[
+                    {field:'hosName',title:'设置医院',sortable:true,width:250},			        
+                    {field:'cisHosName',title:'关联医院',sortable:true,width:250},			       
+                    {field:'stateName',title:'状态',sortable:true,width:100},
+                    {field:'approveStateName',title:'审核状态',sortable:true,width:100},
+                    {field:'isViewName',title:'是否查阅',sortable:true,width:100}
+			    ]],
+               rownumbers:true,
+               toolbar:'#tb'                	
+			});  
+		 
+		 
+		 $('#hHosParentPanel').datagrid({
+			 fit:true,
+             fitColumns:true, 
+             nowrap: true,
+             autoRowHeight: true,
+             striped: true,
+             collapsible:false,             
+             remoteSort:false,
+             singleSelect:true,
+             animate: true,
+			 url:'/project-dg/hHosCisRelation/f_json/pageQuery.shtml', 			 			 
+			 queryParams: {
+	            'type' : '01',
+	            'findHosId':'14d8072b-5fe6-4ae8-ae1a-330bec01366e'
+			 },
+			 pagination:true,
+			 columns:[[
+                    {field:'parentHosName',title:'主医院',sortable:true,width:250},
+                    {field:'hosName',title:'分医院',sortable:true,width:250},			        			       
+                    {field:'stateName',title:'状态',sortable:true,width:100},
+                    {field:'approveStateName',title:'审核状态',sortable:true,width:100},
+                    {field:'isViewName',title:'是否查阅',sortable:true,width:100}
+			    ]],
+               rownumbers:true,
+               toolbar:'#tb'                                	
+		}); 
+		 
+		 $(".tabs-inner").click(function() { 
+			 $("#edui1").css("width","auto");
+			 $("#edui74").css("width","auto");
+			 $("#edui1_iframeholder").css("width","auto");
+		 });
+		 
+		});	
+	
+	    function showDep(){
+	  	  parent.menuInfo.clickMenu('东莞市人民医院','/hDep/f_view/index.shtml?hosId=14d8072b-5fe6-4ae8-ae1a-330bec01366e', true);
+	    }
+	    
+	    function showDoc(){
+	  	  parent.menuInfo.clickMenu('东莞市人民医院','/hDoc/f_view/index.shtml?hosId=14d8072b-5fe6-4ae8-ae1a-330bec01366e', true);
+	    }	    	   	
+			   
+	
+	var hHosCis = {
+		panel : 'hHosCisPanel',
+		//查询
+		query : function() {
+	        $('#'+hHosCis.panel).treegrid({
+	            url: '/project-dg/hHosCis/f_json/pageQuery.shtml',
+	            queryParams: {
+	                'hHosCis.name': $('#hHosCisName').val()
+	            },
+	            pageNumber: 1
+	        });
+	    },
+	    
+	  //新增
+	    add : function() {
+	            //通过弹出窗口的方式打开页面
+	            Comm.dialog({
+	                url:"/project-dg/hHosCis/f_view/toedit.shtml",
+	                title: '新增 - 医疗联合服务体系',
+	                width:'500',
+			        height:'270',
+	                type:"iframe"
+	            });
+	       
+	    },
+	    
+	    addCheck: function(cisId,id,cisName){
+	    	//通过弹出窗口的方式打开页面
+	    	$.messager.confirmAdd('提示', '允许“'+cisName+'”加入该服务体？','接受','拒绝', function (r) {
+	    		var result;
+	    		if(r){
+	    			result = "2";
+	    		}else{
+	    			result = "3";
+	    		}
+	    		$.ajax({
+                    url: '/project-dg/hHosCisRelation/f_json/save.shtml',
+                    type: 'post',
+                    data: {'cisId':cisId,'id':id,'status': result,'ids':''},
+                    dataType: 'json',
+                    success : function(data) {
+                    	if(data.result == 'success') {
+                    		hHosCis.query();
+                            $('#'+hHosCis.panel).datagrid('unselectAll');
+                            $.messager.show({ title: '提示', msg: '操作成功！' });
+					    }else $.messager.alert('提示', data.msg);
+					}
+                });
+	    	});
+	    },
+	    
+	  //新增下级医院
+	    addHos: function(cisId,hosId,rid) {
+	    		
+	            //通过弹出窗口的方式打开页面
+	            Comm.dialog({		            	
+	                url:"/project-dg/hHosCis/f_view/addHos.shtml?cisId="+cisId+"&parentHosId="+hosId+"&rid="+rid,
+	                title: '新增下级医院',
+	                width:'700',
+	                height:'400',
+	                type:"iframe"
+	            });		       
+	    },
+	    //编辑
+	    edit : function(id) {
+           //通过弹出窗口的方式打开页面
+           Comm.dialog({
+               url:"/project-dg/hHosCis/f_view/toedit.shtml?id=" + id,
+               title: '编辑 - 医疗联合服务体系',
+               width:'500',
+		        height:'300',
+		        type:"iframe"
+           });			    
+	    },
+	    //排除医院
+	    delRelation : function(id,hosId,cisName) {
+           $.messager.confirm('提示', '确认移除“'+cisName+'”？', function (r) {
+               if (r) {
+                   $.ajax({
+                       url: '/project-dg/hHosCisRelation/f_json/delete.shtml',
+                       type: 'post',
+                       data: { 'cisId': id,'hosId':hosId },
+                       dataType: 'json',
+                       success : function(data) {
+                       	if(data.result == 'success') {
+                       		hHosCis.query();
+                               $('#'+hHosCis.panel).datagrid('unselectAll');
+                               $.messager.show({ title: '提示', msg: '删除成功！' });
+					    	}
+					    	else $.messager.alert('提示', data.msg);
+						}
+                   });
+               }
+           });
+	    },
+	    //删除
+	    del : function(id, cisName) {
+	            $.messager.confirm('提示', '确认移除“'+ cisName +'”医疗联合服务体系?', function (r) {
+	                if (r) {
+	                    $.ajax({
+	                        url: '/project-dg/hHosCis/f_json/delete.shtml',
+	                        type: 'post',
+	                        data: { 'id': id },
+	                        dataType: 'json',
+	                        success : function(data) {
+	                        	if(data.result == 'success') {
+	                        		hHosCis.query();
+	                                $('#'+hHosCis.panel).datagrid('unselectAll');
+	                                $.messager.show({ title: '提示', msg: '删除成功！' });
+						    	}
+						    	else $.messager.alert('提示', data.msg);
+							}
+	                    });
+	                }
+	            });
+	    	}
+	};
+	
+	function flush(){
+		hHosCis.query();
+	}	
+		
+	function beforeSave(){
+		var url="/project-dg/hHos/f_json/beforeSave.shtml";
+		$('#editFormHHos').attr('action', url);
+		editSaveInputForm.submit();
+	}
+	function save(){
+		var url="/project-dg/hHos/f_json/save.shtml";
+		$('#editFormHHos').attr('action', url);
+		editSaveInputForm.submit();
+	}
+	editSaveInputForm = $('#editFormHHos').form({
+		id: 'editFormHHos',
+		//url : '/project-dg/hHos/f_json/save.shtml',
+		subbtn: 'saveSubmitBtn',
+		success : function(r) {
+			r = eval("(" + r + ")");
+			if (r.result ==  "success"||r.result=="hoSuccess") {
+				parent.$.messager.show({ title: '提示', msg: '操作成功！' });
+                
+			} else $.messager.alert('提示', r.msg);
+		}
+	});
+	
+	/*
+	* 预保存恢复
+	* @author ZouJiang
+    * @date 2015/04/01
+	*/	
+	
+	function recoverySave(){
+		
+		Comm.dialog({ 
+			url:"/project-dg/hHos/f_view/getBeforeSave.shtml?hosId=14d8072b-5fe6-4ae8-ae1a-330bec01366e",
+		    title:"恢复预保存",		    	   
+			width: 550, 
+			type:'iframe',
+			resizable:true,
+			collapsible:true,
+		    height: 470,	
+		    modal:true			    
+			});  						
+		
+		
+	}	
+	
+	/**
+	选择百度坐标
+	*/
+	function selectZuobiao(){
+		Comm.dialog({ 
+			url:"/project-dg/hHos/f_view/baiduditu.shtml",
+		    title:"选择百度地图坐标",		    	   
+			width: 550, 
+			type:'iframe',
+			resizable:true,
+			collapsible:true,
+		    height: 470,	
+		    modal:true			    
+			});
+	}
+	
+		//公交路线介绍编辑框 
+		var busRouteDes = UE.getEditor('busRouteDes', {
+			toolbars : [[ 'fullscreen', //全屏
+			  			'source', //源码 
+			  			'undo', //撤销
+			  			'redo', //还原
+			  			'fontfamily',//字体
+			  			'fontsize', //字体大小
+			  			'indent', //首行缩进
+			  			'lineheight', //行高
+			  			'bold', //加粗
+			  			'italic', //斜体
+			  			'underline', //下滑线
+			  			'strikethrough', //删除线
+			  			'superscript', //上标
+			  			'subscript', //下标
+			  			'formatmatch',//格式刷
+			  			'removeformat', //清除格式
+			  			'|', 'justifyleft', //居左对齐
+			  			'justifycenter', //居中对齐
+			  			'justifyright', //居右对齐
+			  			'justifyjustify', //两端对齐
+			  			'blockquote', //引用
+			  			'|', 'link', //超链接
+			  			'unlink', //取消链接
+			  			'forecolor', //字体颜色
+			  			'backcolor', //背景色
+			  			'preview', //预览
+			  			]],
+			  			autoHeightEnabled : false,
+			  			elementPathEnabled : false,
+			  			maximumWords:1000,
+			  			autoFloatEnabled:false
+
+		});
+		
+		//医院详情编辑框
+		var HosDes = UE.getEditor('HosDes', {
+			toolbars : [[ 'fullscreen', //全屏
+			  			'source', //源码 
+			  			'undo', //撤销
+			  			'redo', //还原
+			  			'fontfamily',//字体
+			  			'fontsize', //字体大小
+			  			'indent', //首行缩进
+			  			'lineheight', //行高
+			  			'bold', //加粗
+			  			'italic', //斜体
+			  			'underline', //下滑线
+			  			'strikethrough', //删除线
+			  			'superscript', //上标
+			  			'subscript', //下标
+			  			'formatmatch',//格式刷
+			  			'removeformat', //清除格式
+			  			'|', 'justifyleft', //居左对齐
+			  			'justifycenter', //居中对齐
+			  			'justifyright', //居右对齐
+			  			'justifyjustify', //两端对齐
+			  			'blockquote', //引用
+			  			'|', 'link', //超链接
+			  			'unlink', //取消链接
+			  			'forecolor', //字体颜色
+			  			'backcolor', //背景色
+			  			'preview', //预览
+			  			]],
+			  			autoHeightEnabled : false,
+			  			elementPathEnabled : false,
+			  			maximumWords:1000,
+			  			autoFloatEnabled:false
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="js/easyui-themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="js/easyui-themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/edit_ui.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<div class="ks_tit">科室服务信息</div>
+<div class="sel_box">
+    <label>科室选择：</label>
+    <!--科室选择框-->
+    <select id="ks_sel" style="width:150px"></select>
+
+    <div id="ks_box">
+        <ul id="ks_list" class="easyui-tree"
+            url="data/tree_data.json"
+            checkbox="true" animate="true" iconCls='icon-add'>
+        </ul>
+    </div>
+
+    <!--日历-->
+    <label>日期选择：</label>
+    <input id="rili" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"/>
+</div>
+<div class="table_box">
+    <div class="date_box">
+        <div class="prev_day"><a href="#">◀◀ <em>2015-08-18</em> 服务信息</a></div>
+        <div class="to_day"><em>2015-08-19</em> 服务信息</div>
+        <div class="next_day"><a href="#"><em>2015-08-20</em> 服务信息 ▶▶</a></div>
+    </div>
+    <!--查询结果-->
+    <table id="cx_result" class="easyui-treegrid" style="width:100%;"
+           url="data/treegrid_data_ks.json"
+           idField="id" treeField="name" autoRowHeight="true">
+        <thead>
+        <tr>
+            <th field="name" width="20%" height="40">
+                <div style="text-align: center">科室</div>
+            </th>
+            <th field="num_zy" width="15%" align="center">资源数</th>
+            <th field="num_yg" width="15%" align="center">已挂号</th>
+            <th field="num_bd" width="15%" align="center">报到数</th>
+            <th field="num_dd" width="15%" align="center">订单数</th>
+            <th field="handle" width="20%" align="center">操作</th>
+        </tr>
+        </thead>
+    </table>
+<script type="text/javascript" src="js/ks_table.js"></script>
+</body>
+</html>

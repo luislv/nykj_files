@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+/*Global styles*/
+/*----Reset styles began----*/
+body, div,span, p,strong, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, th, td { padding: 0; margin: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+fieldset, img { border: 0; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+ol,ul,li,dl { list-style: none; }
+caption, th { text-align: left; }
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+q:before, q:after { content:normal; }
+/*----Reset styles end----*/
+/*----General styles began----*/
+body { font-size:12px; font-family:宋体; color:#666; }
+.fl_l { float:left; display:inline; }
+.fl_r { float:right; display:inline; }
+.cl_l { clear:left; }
+.cl_r { clear:right; }
+.cl_b { clear:both; }
+.dis_b { display:block; }
+.dis_i { display:inline; }
+.dis_n { display:none; }
+.bold { font-weight:bold; }
+.f_12 { font-size:12px; }
+.f_13 { font-size:13px;}
+.f_14 { font-size:14px; }
+.f_15 { font-size:15px; }
+.f_16 { font-size:16px; }
+.f_18 { font-size:18px; }
+.f_20 { font-size:20px; }
+.f_22 { font-size:22px; }
+.f_30 { font-size:30px; }
+a { outline:none; cursor:pointer; color:#666; }
+a:link, a:visited { text-decoration:none; }
+a:hover { text-decoration:underline; }
+.line_u a { text-decoration:underline;}
+.tx_align_c { text-align:center; }
+.tx_align_l { text-align:left; }
+.tx_align_r { text-align:right; }
+/*----General styles end----*/
+/*结构类公用样式begin*/
+.lay { width:1100px; margin:0px auto;}
+.fenge{ height:5px; width:100%; overflow:auto;}
+/*结构类公用样式end*/
+/*间距类公用样式end*/
+.m_t_1{ margin-top:1px;}
+.m_t_2{ margin-top:2px;}
+.m_t_3{ margin-top:3px;}
+.m_t_4{ margin-top:4px;}
+.m_t_5{ margin-top:5px;}
+.m_t_10{ margin-top:10px;}
+.m_t_15{ margin-top:15px;}
+.m_t_20{ margin-top:20px;}
+.m_t_25{ margin-top:25px;}
+.m_t_30{ margin-top:30px;}
+/*间距类公用样式end*/
