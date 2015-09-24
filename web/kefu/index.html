@@ -3,8 +3,8 @@
 <head lang="en">
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" type="text/css" href="http://www.ny.com/base.css"/>
-<script type="text/javascript" src="http://www.ny.com/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../base.css"/>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 <script type="text/javascript" src="js/kefu.js"></script>
 </head>
@@ -31,12 +31,13 @@
                   <input type="text" value="请输入旧密码"/>
                 </li>
                 <li><em>新密码</em>
-                  <input type="text" value="请输入新密码"/>
+                  <span class="inp_box"><input type="text" value="请输入新密码"/><i class="error"> * 请输入正确密码</i></span>
                   <p class="safe">安全级别：弱<span class="d"><i class="s_1"></i></span>强</p>
                 </li>
                 <!-- s_1、s_2、s_3三个class分别对应弱、中、强三个安全等级   -->
                 <li><em>确认新密码</em>
-                  <input type="text" value="确认新密码"/>
+                    <span class="inp_box"><input type="text" value="确认新密码"/><i class="suc">&nbsp;</i></span>
+
                 </li>
               </ul>
               <div class="sub_btn">

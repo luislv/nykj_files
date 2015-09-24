@@ -12,7 +12,7 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .header .menu .faq { background:url("../images/kf_icon.png") no-repeat  -30px -36px; margin-left:15px;}
 .header .tel {float:right; display:inline;margin-top:30px; font-family:"Microsoft yahei", "微软雅黑","黑体";font-size:16px;}
 .header .tel .number{font-size:24px;line-height:24px; font-family:arial, helvetica, sans-serif; color:#ff6600;  font-weight:bold; position:relative; top:3px;}
-.setting_box {display:none;width:420px;position:absolute;z-index:99;left:-390px;top:35px;padding-bottom:30px;background-color:#fff; border:1px solid #ddd;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+.setting_box {display:none;width:480px;position:absolute;z-index:99;left:-390px;top:35px;padding-bottom:30px;background-color:#fff; border:1px solid #ddd;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
 .setting_box .tit {height:37px; line-height:37px; border-bottom:1px solid #d6d6d6;padding-left:16px;font-size:14px; color:#333;background:url("../images/jb.gif") repeat-x 0 0;}
 .setting_box .tit .close {width:10px; height:10px;background:url("../images/kf_icon.png") no-repeat 0 -89px; float:right;display:inline;margin:13px 13px 0 0;}
 .setting_box .tab_box {padding-left:16px;}
@@ -20,11 +20,15 @@ body { background-color:#f9f9f9;font-family: 微软雅黑, 黑体;}
 .setting_box .tab_box .tab_t span {width:60px; margin-right:20px;position:relative;height:36px; line-height:36px;font-size:14px;color:#999; text-align:center;}
 .setting_box .tab_box .tab_t .cur {border-bottom:2px solid #088ec9; color:#333;}
 .setting_box .tab_box .tab_c {}
-.setting_box .tab_box .tab_c ul li {line-height:32px; float:left;display:inline; margin-top:10px; font-family:宋体; color:#333;}
-.setting_box .tab_box .tab_c ul li em {width:100px;display:inline-block; padding-right:15px; text-align:right;}
+.setting_box .tab_box .tab_c ul li {line-height:32px; clear:both;float:left;display:block; margin-top:10px; font-family:宋体; color:#333;}
+.setting_box .tab_box .tab_c ul li em {width:70px;display:inline-block; padding-right:15px; text-align:right; float: left;}
 .setting_box .tab_box .tab_c ul li input {width:225px;padding-left:3px; height:30px; line-height:30px;border:1px solid #c0ced1;-webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px;color:#999;}
-.setting_box .tab_box .tab_c ul li .safe { clear:both;line-height:12px;margin-top:10px; text-align:right;}
-.setting_box .tab_box .tab_c ul li .safe .d {width:117px; height:8px;margin:0 6px;background:url("../images/safe.gif") repeat-x 0 -8px;}
+.setting_box .tab_box .tab_c ul li .inp_box {display: inline;}
+.setting_box .tab_box .tab_c ul li i {display: inline; font-style: normal;}
+.setting_box .tab_box .tab_c ul li .error { color:red;}
+.setting_box .tab_box .tab_c ul li .suc {margin-left:5px;padding-left:20px;width:16px; height:13px; background: url("../images/suc.gif") no-repeat 0 0;}
+.setting_box .tab_box .tab_c ul li .safe { clear:both;line-height:12px;margin-top:10px;padding-left:95px; text-align:left;}
+.setting_box .tab_box .tab_c ul li .safe .d {width:117px; height:8px;margin:0 6px;background:url("../images/safe.gif") repeat-x 0 -8px; display: inline-block}
 .setting_box .tab_box .tab_c ul li .safe .d i { height:8px;background:url("../images/safe.gif") repeat-x 0 0;display:inline-block; float:left;}
 .setting_box .tab_box .tab_c ul li .safe .d .s_1 {width:39px;}
 .setting_box .tab_box .tab_c ul li .safe .d .s_2 {width:78px;}
