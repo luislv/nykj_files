@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if lt IE 7]><html class="lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]><html class="lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="lt-ie10 lt-ie9"> <![endif]--><!--[if IE 9]><html class="lt-ie10"> <![endif]--><!--[if gt IE 8]><!--><html><!--<![endif]--><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>深圳就医160网－深圳市卫生局预约挂号统一平台！</title>
+<link type="text/css" rel="stylesheet" href="style/global.css" />
+<link type="text/css" rel="stylesheet" href="style/process/process.css" />
+</head>
+<body>
+<!--header-->
+
+  <!--end header-->
+  <!--content-->
+  <div class="padtb20">
+    <div class="content w960">
+      <div class="order-bor">
+        <!-- 订单详情 -->
+        <div class="order-con">
+          <h2 class="or-t">取消订单  <a href="#">< 返回我的订单</a></h2>
+          <div class="cancel-order fn-clear">
+            <dl>
+              <dt>订单编号：</dt>
+              <dd>3201103234</dd>
+            </dl>
+            <dl>
+              <dt>退款金额：</dt>
+              <dd>21.00 元</dd>
+            </dl>
+            <dl>
+              <dt>退款方式：</dt>
+              <dd>
+                <ul>
+                  <li>
+                    <label><input type="radio" name="tkfs" value="" checked="" style="border:none;"> <b class="c3">退至我的钱包</b></label>
+                    （立即到账，无手续费）
+                    <p class="small">钱包余额可在下次支付时直接冲抵现金，也可随时提现</p>
+                  </li>
+                  <li style="margin-top:10px; padding:10px 40px 0 0; border-top:dotted 1px #e2e2e2">
+                    <label><input type="radio" name="tkfs" value=""  style="border:none;"> <b>原路退</b></label> 
+                    （3~10个工作日内退回您的原支付方，无手续费）
+                    <p class="small">原支付方是指您付款时选择的支付方式，例如支付宝/财付通/银行卡</p>
+                  </li>
+                </ul>
+                <input class="orderbtn2" type="submit" value="提交" name="">
+              </dd>
+            </dl>          
+          </div>
+        </div>
+        <!-- 订单详情 -->
+        <!-- 问答 -->
+        <div class="payhelp">
+          <h3>退款帮助</h3>
+          <dl>
+            <dt>什么是原路退？</dt>
+            <dd>＊原路退是指将退款金额退回您的原支付方，包括支付宝/财付通/银行卡；原路退将在3-10个工作日内到账，无手续费。</dd>
+            <dt>申请退款后是否可以取消？</dt>
+            <dd>＊在平台处理完成之前可以取消，取消后的订单仍可以消费。若平台处理已完成，则不能取消，请您谅解。</dd>
+          </dl>
+        </div>
+        <!-- 问答 -->
+      </div>
+    </div>
+  </div><!--end content-->
+
+<!--[if IE 6]>    
+<script>
+  DD_belatedPNG.fix('.');
+</script>
+<![endif]-->
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jybirth.js"></script>
+<script type="text/javascript" src="js/account_v4.js"></script>
+<script type="text/javascript">
+timer({$time_left});    
+   
+function timer(ts) {  
+    if(ts < 0){
+        return;
+    }
+    var mm = parseInt(ts / 60);//计算剩余的分钟数  
+    var ss = parseInt(ts % 60);//计算剩余的秒数  
+    mm = checkTime(mm);  
+    ss = checkTime(ss);  
+    document.getElementById("count_down").innerHTML =  mm + "分" + ss + "秒";  
+    ts--;
+    if(ts < 0){
+        setTimeout(function(){
+            window.location.reload();
+        }, 1000);
+    }else{
+    setTimeout("timer("+ts+")",1000);  
+}  
+}  
+function checkTime(i) {    
+   if (i < 10) {    
+       i = "0" + i;    
+    }    
+   return i;    
+}    
+  
+</script>
+</body>
+</html>
